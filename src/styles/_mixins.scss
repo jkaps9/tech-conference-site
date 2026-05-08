@@ -43,53 +43,59 @@
 }
 
 // --- Typography: Headings
-@mixin type-display {
-  font-family: $font-heading;
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-}
-
 @mixin type-h1 {
-  @include type-display;
-  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-family: $font-heading;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -2px;
+  font-size: clamp(2.375rem, 1.4507rem + 3.9437vw, 5rem);
 }
 
 @mixin type-h2 {
   font-family: $font-heading;
   font-weight: 700;
-  font-size: clamp(1.6rem, 3.5vw, 2.25rem);
-  line-height: 1.2;
-  letter-spacing: -0.015em;
+  font-size: clamp(1.5rem, 1.3239rem + 0.7512vw, 2rem);
+  line-height: 1.1;
+  @include bp(lg){
+    line-height: 1.2;
+  }
 }
 
 @mixin type-h3 {
   font-family: $font-heading;
   font-weight: 600;
-  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-size: 1.5rem;
   line-height: 1.3;
 }
 
-@mixin type-topper {
-  font-family: $font-body;
-  font-size: 0.8rem;
+@mixin type-h4 {
+  font-family: $font-heading;
   font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-size: 1.25rem;
+  line-height: 1.4;
 }
 
 // --- Typography: Body
 @mixin type-body {
   font-family: $font-body;
   font-size: $font-size-base;
-  line-height: $line-height-base;
   font-weight: 400;
+  line-height: $line-height-base;
 }
 
 @mixin type-body-sm {
   font-family: $font-body;
-  font-size: 0.9rem;
-  line-height: 1.6;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: $line-height-base;
+}
+
+@mixin type-body-xs {
+  font-family: $font-body;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  line-height: $line-height-base;
 }
 
 // --- Layout utilities
