@@ -10,18 +10,12 @@
 // --- CSS Custom Properties (edit site-wide via these vars)
 :root {
   // Colors
-  --color-blue: #{$color-blue};
-  --color-blue-dark: #{$color-blue-dark};
-  --color-blue-mid: #{$color-blue-mid};
-  --color-blue-light: #{$color-blue-light};
-  --color-orange: #{$color-orange};
-  --color-orange-dark: #{$color-orange-dark};
-  --color-white: #{$color-white};
-  --color-grey-light: #{$color-grey-light};
-  --color-grey-mid: #{$color-grey-mid};
-  --color-grey-text: #{$color-grey-text};
-  --color-text: #{$color-text};
+  --color-text: #{$color-neutral-200};
+  --color-dark-text: #{$color-neutral-900};
+  --color-heading-text: #{$color-green-200};
+
   --color-red-300: #{$color-red-300};
+  --color-main-bg: #{$color-neutral-900};
 
   // Typography
   --font-heading: #{$font-heading};
@@ -78,7 +72,7 @@
 body {
   @include type-body;
   color: var(--color-text);
-  background-color: var(--color-white);
+  background-color: var(--color-main-bg);
   /* 5. Improve text rendering */
   -webkit-font-smoothing: antialiased;
 }
@@ -191,7 +185,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--color-header);
+  color: var(--color-heading-text);
 }
 
 p,
@@ -201,7 +195,7 @@ a {
 }
 
 section {
-  padding: var(--section-padding);
+  padding: var(--container-pad);
 }
 
 /*~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~>
@@ -236,7 +230,7 @@ section {
 .btn {
   border-radius: 0.5rem;
   border: 2px solid transparent;
-  color: var(--color-header);
+  color: var(--color-text);
   display: inline-flex;
   font-size: 1rem;
   font-weight: 700;
