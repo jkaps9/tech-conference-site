@@ -1,17 +1,17 @@
 [
   {
     "key": "Home",
-    "url": "/",
+    "url": "/tech-conference-site",
     "children": []
   },
   {
     "key": "About",
-    "url": "/about/",
+    "url": "/tech-conference-site/about/",
     "children": []
   },
   {
     "key": "Blog",
-    "url": "/blog/",
+    "url": "/tech-conference-site/blog/",
     "children": []
   }
 ]

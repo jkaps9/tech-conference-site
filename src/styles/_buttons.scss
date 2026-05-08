@@ -1,0 +1,117 @@
+// ============================================================
+// _buttons.scss
+// ============================================================
+
+@use "variables" as *;
+@use "mixins" as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
+  white-space: nowrap;
+  text-decoration: none;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  // Sizes
+  &--lg {
+    padding: 0.9rem 2rem;
+    font-size: 1.05rem;
+  }
+
+  &--full {
+    width: 100%;
+    justify-content: center;
+  }
+
+  // Variants
+  &--primary {
+    background-color: var(--color-orange);
+    color: var(--color-white);
+    box-shadow: 0 4px 14px rgba(244, 123, 32, 0.35);
+
+    &:hover {
+      background-color: var(--color-orange-dark);
+      box-shadow: 0 6px 20px rgba(244, 123, 32, 0.45);
+    }
+  }
+
+  &--secondary {
+    background-color: transparent;
+    color: var(--color-white);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.12);
+      border-color: var(--color-white);
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+    color: var(--color-blue);
+    border: 2px solid var(--color-blue);
+
+    &:hover {
+      background-color: var(--color-blue);
+      color: var(--color-white);
+    }
+  }
+
+  &--header {
+    background-color: var(--color-orange);
+    color: var(--color-white);
+    padding: 0.6rem 1.25rem;
+    font-size: 0.9rem;
+    box-shadow: none;
+
+    &:hover {
+      background-color: var(--color-orange-dark);
+    }
+
+    .btn__icon {
+      padding: 0.6rem;
+
+      svg {
+        height: 1.5rem;
+        width: 1.5rem;
+        @include bp-max(md) {
+          height: auto;
+          width: 1.2em;
+        }
+      }
+    }
+
+    // Hide label text on small screens, show icon only
+    @include bp-max(md) {
+      padding: 0.6rem 0.75rem;
+
+      .btn__icon {
+        font-size: 1.1rem;
+      }
+
+      // Hide everything that isn't the icon
+      .btn__label {
+        display: none;
+      }
+    }
+  }
+}

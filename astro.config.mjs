@@ -1,11 +1,26 @@
 // @ts-check
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 
 import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://example.com", //TODO: update me!
+  site: "https://jkaps9.github.io/", //TODO: update me!
+  base: "/tech-conference-site",
+  fonts: [
+{
+      provider: fontProviders.fontsource(),
+      name: "Chakra Petch",
+      cssVariable: "--font-chakra-petch",
+      weights: [600, 700],
+    },
+    {
+      provider: fontProviders.fontsource(),
+      name: "JetBrains Mono",
+      cssVariable: "--font-jetbrains-mono",
+      weights: [400, 500, 800],
+    },
+  ],
   integrations: [
     sitemap({
       filter: (page) => !page.includes("/admin"),
