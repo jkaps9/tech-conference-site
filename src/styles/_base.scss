@@ -13,7 +13,9 @@
   --color-text: #{$color-neutral-200};
   --color-dark-text: #{$color-neutral-900};
   --color-heading-text: #{$color-green-200};
+  --color-neutral-100: #{$color-neutral-100};
   --color-neutral-600: #{$color-neutral-600};
+  --color-neutral-900: #{$color-neutral-900};
   --color-red-300: #{$color-red-300};
   --color-main-bg: #{$color-neutral-900};
 
@@ -225,39 +227,6 @@ section {
   align-items: center;
   display: flex;
   justify-content: space-between;
-}
-
-.btn {
-  border-radius: 0.5rem;
-  border: 2px solid transparent;
-  color: var(--color-text);
-  display: inline-flex;
-  font-size: 1rem;
-  font-weight: 700;
-  padding: 0.75em 1.5em;
-  text-decoration: none;
-  transition:
-    background-color 0.3s ease 0.1s,
-    border-color 0.3s ease 0.1s,
-    color 0.3s ease 0.1s;
-
-  &.btn--solid {
-    background-color: var(--color-primary);
-  }
-
-  &.btn--outline {
-    background-color: var(--color-body-text-white);
-    border-color: var(--color-primary);
-    color: var(--color-primary);
-    &:hover {
-      border-color: var(--color-secondary);
-    }
-  }
-
-  &:hover {
-    background-color: var(--color-secondary);
-    color: var(--color-body-text-white);
-  }
 }
 
 /* Skip to main content link - accessible to keyboard users and screen readers */

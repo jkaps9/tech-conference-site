@@ -18,23 +18,17 @@ import Logo from "./Logo.astro";
         >
           {
             navData.map((item) => (
-              <li
-                class:list={[
-                  "nav-list__item",
-                  { "nav-links__dropdown": item.children?.length > 0 },
-                ]}
-              >
-                <a href={item.url}>{item.key}</a>
+              <li class:list="nav-list__item">
+                <a
+                  href={item.url}
+                  class="btn btn--nav"
+                >
+                  {item.key}
+                </a>
               </li>
             ))
           }
         </ul>
-        <a
-          href="/contact/"
-          class="nav-cta btn btn--solid"
-        >
-          Get Quote
-        </a>
       </div>
       <!-- <ThemeIcon /> -->
       <button
@@ -132,7 +126,7 @@ import Logo from "./Logo.astro";
     }
   }
 
-  @media (max-width: 63.9375rem) {
+  @media (max-width: 47.99rem) {
     body {
       overflow-x: hidden;
     }
@@ -227,7 +221,7 @@ import Logo from "./Logo.astro";
     }
   }
 
-  @media (min-width: 64rem) {
+  @media (min-width: 48rem) {
     header {
       box-shadow: 0 8px 6px -8px rgba(0, 0, 0, 0.1);
       padding: 2rem 0;
