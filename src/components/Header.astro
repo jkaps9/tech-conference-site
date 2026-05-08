@@ -43,7 +43,7 @@ const { PageTitle } = Astro.props;
         type="button"
         aria-expanded="false"
         aria-controls="main-menu"
-        class="nav-toggle"
+        class="nav-toggle btn btn--nav"
         aria-label="Open navigation menu"
       >
         <span
@@ -66,7 +66,7 @@ const { PageTitle } = Astro.props;
   </div>
 </header>
 
-<style>
+<style lang="scss">
   header {
     padding: 2rem 0;
     position: relative;
@@ -80,7 +80,7 @@ const { PageTitle } = Astro.props;
     display: flex;
     gap: 2rem;
 
-    .logo {
+    :global(.logo) {
       margin-right: auto;
     }
   }
