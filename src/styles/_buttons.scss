@@ -66,4 +66,26 @@
       box-shadow: 2px 2px 0 0 var(--color-green-200);
     }
   }
+
+  &--light {
+    background: var(--color-cyan-100);
+    box-shadow: 2px 2px 0 0 var(--color-neutral-900);
+    border-color: var(--color-neutral-900);
+    color: var(--color-dark-text);
+    svg * {
+      fill: currentColor;
+    }
+
+    &:hover {
+      background: var(--color-neutral-900);
+      border-color: var(--color-neutral-600);
+       box-shadow: 2px 2px 0 0 var(--color-neutral-600);
+       color: var(--color-neutral-100);
+    }
+
+    &:active {
+      background: var(--color-cyan-100);
+      color: var(--color-dark-text);
+    }
+  }
 }
