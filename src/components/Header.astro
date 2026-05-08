@@ -84,11 +84,16 @@ import Logo from "./Logo.astro";
   }
 
   .nav-toggle {
+    align-items: center;
     background-color: transparent;
-    border: none;
+    border: 1px solid var(--color-text);
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+    justify-content: center;
+    min-height: 40px;
+    min-width: 40px;
+    padding: 10px 0;
     /* position: relative; */
     z-index: 1001;
 
@@ -98,7 +103,7 @@ import Logo from "./Logo.astro";
       --width: 1.25rem;
       width: var(--width);
       height: 2px;
-      background-color: var(--color-header);
+      background-color: var(--color-text);
     }
 
     .line1,
@@ -156,8 +161,8 @@ import Logo from "./Logo.astro";
     }
     .container {
       box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-      padding: 2rem;
-      width: 100%;
+      border-bottom: 1px solid var(--color-neutral-600);
+      padding: 0.75rem 0;
     }
     .nav-list-wrapper {
       align-items: center;
