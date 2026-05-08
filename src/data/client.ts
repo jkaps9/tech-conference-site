@@ -1,10 +1,10 @@
 // ===== SITE CONSTANTS =====
 export const SITE = {
-	title: "Pearl River Web",
-	tagline: "Professional Web Design Services",
-	description: "Pearl River Web offers top-tier web design and development services to meet all your project needs. Start exploring and contact our team for superior quality and reliability.",
+	title: "DevHorizon",
+	tagline: "Three-day engineer conference",
+	description: "A three-day conference for engineers who build the interfaces humans use every day.",
 	url: "https://www.yourwebsite.com",
-	author: "Pearl River Web team",
+	author: "DevHorizon",
 	locale: "en",
 };
 
@@ -16,11 +16,11 @@ export const BUSINESS = {
 	phoneFormatted: "(555) 867-5309",
 	logo: "/assets/favicons/favicon.svg",
 	address: {
-		lineOne: "First Address Line",
-		lineTwo: "Second Address Line",
-		city: "Pearl River",
-		state: "NY",
-		zip: "10965",
+		lineOne: "Pier 70",
+		lineTwo: "",
+		city: "San Francisco",
+		state: "CA",
+		zip: "",
 		mapLink: "https://maps.app.goo.gl/CcfhaWkR18YoUt4h9",
 	},
 	socials: {
