@@ -5,13 +5,13 @@
     "children": []
   },
   {
-    "key": "About",
-    "url": "/tech-conference-site/about/",
+    "key": "Schedule",
+    "url": "/tech-conference-site/schedule/",
     "children": []
   },
   {
-    "key": "Blog",
-    "url": "/tech-conference-site/blog/",
+    "key": "Speakers",
+    "url": "/tech-conference-site/speakers/",
     "children": []
   }
 ]
