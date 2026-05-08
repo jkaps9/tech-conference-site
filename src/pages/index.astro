@@ -4,4 +4,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Home";
 ---
 
-<BaseLayout pageTitle={pageTitle} />
+<BaseLayout pageTitle={pageTitle}>
+  <div class="container">
+    <a
+      class="btn"
+      href="#"
+    >
+      View All Speakers
+    </a>
+  </div>
+</BaseLayout>
