@@ -2,6 +2,8 @@
 import ThemeIcon from "./ThemeIcon.astro";
 import navData from "../data/navData.json";
 import Logo from "./Logo.astro";
+
+const { PageTitle } = Astro.props;
 ---
 
 <header>
@@ -21,7 +23,13 @@ import Logo from "./Logo.astro";
               <li class:list="nav-list__item">
                 <a
                   href={item.url}
-                  class="btn btn--nav"
+                  class:list={[
+                    "btn btn--nav",
+                    {
+                      active:
+                        PageTitle?.toLowerCase() === item.key.toLowerCase(),
+                    },
+                  ]}
                 >
                   {item.key}
                 </a>

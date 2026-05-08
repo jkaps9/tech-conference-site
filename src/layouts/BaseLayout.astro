@@ -28,7 +28,7 @@ const { pageTitle, description, heroImage } = Astro.props;
     >
       Click To Skip To Main Content
     </a>
-    <Header />
+    <Header PageTitle={pageTitle} />
     <main id="main">
       <slot />
     </main>
