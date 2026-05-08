@@ -71,6 +71,8 @@ const { PageTitle } = Astro.props;
     padding: 2rem 0;
     position: relative;
     .container {
+      border-bottom: 1px solid var(--color-neutral-600);
+      padding: clamp(0.75rem, 0.5739rem + 0.7512vw, 1.25rem) 0;
       position: static;
     }
   }
@@ -163,38 +165,35 @@ const { PageTitle } = Astro.props;
     }
     .container {
       box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-      border-bottom: 1px solid var(--color-neutral-600);
-      padding: 0.75rem 0;
     }
     .nav-list-wrapper {
-      align-items: center;
-      background-color: #fff;
+      align-items: stretch;
       bottom: 0;
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
       min-height: 100vh;
       margin-left: 0 auto;
-      padding: 2rem 4rem;
+      padding: var(--space-md) var(--space-sm);
       position: absolute;
       right: 0;
       top: 100%;
       transform: translateX(100%);
       transition: transform 0.3s ease-in;
-      /* TODO: fix nav not sliding out properly */
       visibility: hidden;
-      width: fit-content;
+      width: stretch;
       z-index: -1;
     }
 
     .nav-list {
+      align-items: stretch;
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
-    }
+      gap: var(--space-sm);
 
-    .nav-list__item a {
-      font-size: 1.6rem;
+      a {
+        width: stretch;
+      }
     }
 
     body.navbar:has(.nav-toggle[aria-expanded="true"]) {
@@ -239,7 +238,7 @@ const { PageTitle } = Astro.props;
       background: none;
       display: flex;
       flex-direction: row;
-      gap: 3em;
+      gap: var(--space-sm);
       position: static;
       width: auto;
     }
