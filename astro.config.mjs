@@ -28,4 +28,17 @@ export default defineConfig({
       priority: 0.7,
     }),
   ],
+   vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `
+          @use "/src/styles/_variables.scss" as *;
+          @use "/src/styles/_mixins.scss" as *;
+          @use "/src/styles/_functions.scss" as *;
+          `,
+        },
+      },
+    },
+  },
 });
