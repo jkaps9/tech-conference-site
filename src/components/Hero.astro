@@ -2,12 +2,16 @@
 import { Image } from "astro:assets";
 
 import heroImage from "../assets/images/avatar-elena-vasquez.webp";
+import HorizonBG from "../assets/images/bg-horizon-text.svg";
 import ArrowSVG from "../assets/images/icon-arrow-right.svg";
 ---
 
 <section class="hero">
   <div class="container">
     <div class="hero__intro">
+      <div class="bg-image">
+        <HorizonBG />
+      </div>
       <h1>where code meets the machine_</h1>
       <div class="hero__intro__bottom">
         <p class="date">Nov 15-17, 2026</p>
@@ -49,15 +53,63 @@ import ArrowSVG from "../assets/images/icon-arrow-right.svg";
 <style lang="scss">
   .hero {
     .container {
-      display: grid;
+      display: flex;
+      flex-direction: column;
       gap: clamp(1.5rem, 0.9286rem + 1.1905vw, 2rem);
 
       @include bp(lg) {
-        grid-template-columns: 1fr auto;
+        flex-direction: row;
       }
     }
 
     &__intro {
+      @include flex-between;
+      align-items: stretch;
+      background-color: var(--color-neutral-100);
+      flex-direction: column;
+      min-height: clamp(13.75rem, 9.7887rem + 16.9014vw, 25rem);
+      padding: clamp(1rem, 0.912rem + 0.3756vw, 1.25rem)
+        clamp(1rem, 0.6479rem + 1.5023vw, 2rem);
+      position: relative;
+
+      .bg-image {
+        position: absolute;
+        inset: 0;
+
+        svg {
+          position: absolute;
+          inset: 0;
+          margin: auto;
+
+          @include bp-max(md) {
+            height: auto;
+            width: 277px;
+          }
+        }
+      }
+
+      h1,
+      p {
+        color: var(--color-dark-text);
+      }
+
+      h1 {
+        text-transform: lowercase;
+      }
+
+      &__bottom {
+        @include flex-between;
+        border-top: 2px solid var(--color-neutral-900);
+        padding-top: var(--space-sm);
+
+        p {
+          @include type-body-sm;
+        }
+      }
+
+      @include bp(lg) {
+        min-width: 54vw;
+      }
     }
 
     &__featured-keynote {
@@ -77,6 +129,7 @@ import ArrowSVG from "../assets/images/icon-arrow-right.svg";
         &__text {
           align-items: stretch;
           display: flex;
+          flex: 1;
           flex-direction: column;
           gap: 2rem;
 
@@ -102,6 +155,7 @@ import ArrowSVG from "../assets/images/icon-arrow-right.svg";
             }
 
             @include bp(md) {
+              align-items: flex-start;
               margin-top: auto;
             }
           }
@@ -112,10 +166,12 @@ import ArrowSVG from "../assets/images/icon-arrow-right.svg";
         }
 
         &__image {
+          align-items: flex-end;
           display: flex;
           overflow: hidden;
           img {
-            height: auto;
+            max-height: 408px;
+            width: auto;
             transform: translateX(9vw);
           }
 

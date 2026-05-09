@@ -6,6 +6,7 @@
 
 @use "variables" as *;
 @use "mixins" as *;
+@use "functions" as *;
 
 // --- CSS Custom Properties (edit site-wide via these vars)
 :root {
@@ -223,7 +224,7 @@ section {
 .container {
   width: 95%;
   margin: auto; /* TODO: revisit if i like this*/
-  max-width: 75rem;
+  max-width: rem(1360);
   position: relative;
 }
 
