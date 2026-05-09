@@ -233,6 +233,11 @@ section {
   justify-content: space-between;
 }
 
+.card-title {
+  // TODO: check if this should be a utility, or only for the hero
+  @include type-body-sm;
+}
+
 /* Skip to main content link - accessible to keyboard users and screen readers */
 .skip {
   position: absolute;

@@ -84,27 +84,64 @@ import ArrowSVG from "../assets/images/icon-arrow-right.svg";
             align-items: stretch;
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: var(--space-md);
+
+            &__info {
+              display: flex;
+              flex-direction: column;
+              gap: var(--space-xs);
+            }
+            &__title {
+              font-weight: 700;
+            }
+
+            &__date {
+              @include type-body-sm;
+              color: var(--color-neutral-600);
+              font-weight: 500;
+            }
+
+            @include bp(md) {
+              margin-top: auto;
+            }
+          }
+
+          @include bp(md) {
+            padding: 1.5rem;
           }
         }
 
         &__image {
           display: flex;
-          margin: 0 calc(-1 * var(--space-sm)) calc(-1 * 1.25rem);
-
           overflow: hidden;
           img {
             height: auto;
             transform: translateX(9vw);
           }
+
           @include bp-max(md) {
             display: none;
           }
         }
       }
+
+      @include bp(md) {
+        min-height: rem(400);
+        padding: 0;
+      }
     }
 
     .speaker {
+      p {
+        @include type-body-sm;
+        color: var(--color-neutral-600);
+        font-weight: 500;
+      }
+
+      &__name {
+        font-size: 2rem;
+        margin-bottom: var(--space-xs);
+      }
     }
   }
 </style>
