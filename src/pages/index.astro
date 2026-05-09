@@ -1,7 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Arrow from "@assets/images/icon-arrow-right.svg";
+import Hero from "@components/Hero.astro";
 const pageTitle = "Home";
 ---
 
-<BaseLayout pageTitle={pageTitle} />
+<BaseLayout pageTitle={pageTitle}>
+  <Hero />
+</BaseLayout>

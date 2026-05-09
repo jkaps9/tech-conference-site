@@ -1,0 +1,110 @@
+---
+import { Image } from "astro:assets";
+
+import heroImage from "../assets/images/avatar-elena-vasquez.webp";
+import ArrowSVG from "../assets/images/icon-arrow-right.svg";
+---
+
+<section class="hero">
+  <div class="container">
+    <div class="hero__intro">
+      <h1>where code meets the machine_</h1>
+      <div class="hero__intro__bottom">
+        <p class="date">Nov 15-17, 2026</p>
+        <p class="location">Pier 70, SF</p>
+      </div>
+    </div>
+    <div class="hero__featured-keynote">
+      <div class="featured-keynote__text">
+        <p class="card-title">// Featured Keynote</p>
+        <div class="speaker">
+          <h2 class="speaker__name">elena vasquez</h2>
+          <p>Principal frontend engineer</p>
+          <p>@Bytecraft</p>
+        </div>
+        <div class="event">
+          <div class="event__info">
+            <p class="event__title">The next frontier of web development</p>
+            <p class="event__date">Nov 15 / 9:00 / Room A</p>
+          </div>
+          <a
+            href="#"
+            class="btn btn--light"
+          >
+            View Talk
+            <ArrowSVG />
+          </a>
+        </div>
+      </div>
+      <div class="featured-keynote__image">
+        <Image
+          src={heroImage}
+          alt="Keynote speaker headshot"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .hero {
+    .container {
+      display: grid;
+      gap: clamp(1.5rem, 0.9286rem + 1.1905vw, 2rem);
+
+      @include bp(lg) {
+        grid-template-columns: 1fr auto;
+      }
+    }
+
+    &__intro {
+    }
+
+    &__featured-keynote {
+      --color-heading-text: var(--color-dark-text);
+
+      background-color: var(--color-cyan-100);
+      color: var(--color-dark-text);
+      display: flex;
+
+      padding: 1.25rem var(--space-sm);
+
+      p {
+        text-transform: uppercase;
+      }
+
+      .featured-keynote {
+        &__text {
+          align-items: stretch;
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+
+          .event {
+            align-items: stretch;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+          }
+        }
+
+        &__image {
+          display: flex;
+          margin: 0 calc(-1 * var(--space-sm)) calc(-1 * 1.25rem);
+
+          overflow: hidden;
+          img {
+            height: auto;
+            transform: translateX(9vw);
+          }
+          @include bp-max(md) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .speaker {
+    }
+  }
+</style>
