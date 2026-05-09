@@ -59,6 +59,8 @@ import ArrowSVG from "../assets/images/icon-arrow-right.svg";
 
       @include bp(lg) {
         flex-direction: row;
+        margin: 0;
+        width: stretch;
       }
     }
 
@@ -129,7 +131,6 @@ import ArrowSVG from "../assets/images/icon-arrow-right.svg";
         &__text {
           align-items: stretch;
           display: flex;
-          flex: 1;
           flex-direction: column;
           gap: 2rem;
 
@@ -169,10 +170,10 @@ import ArrowSVG from "../assets/images/icon-arrow-right.svg";
           align-items: flex-end;
           display: flex;
           overflow: hidden;
+
           img {
-            max-height: 408px;
+            max-height: 378px;
             width: auto;
-            transform: translateX(9vw);
           }
 
           @include bp-max(md) {
