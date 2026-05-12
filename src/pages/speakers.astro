@@ -1,12 +1,130 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import InnerHero from "@components/InnerHero.astro";
-import ContactForm from "@components/ContactForm.astro";
-
+import SpeakerCard from "@components/SpeakerCard.astro";
 const pageTitle = "Speakers";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <InnerHero pageTitle={pageTitle} />
-  <ContactForm />
+  <section class="speakers">
+    <div class="container">
+      <h2 class="page-header">// {pageTitle}</h2>
+      <div class="divider"></div>
+      <ul class="speakers-list">
+        <li class="speakers-list__item">
+          <SpeakerCard
+            imagePath="/src/assets/images/avatar-elena-vasquez.webp"
+            altText="Elena Vasquez headshot"
+            name="Elena Vasquez"
+            description="Principal Frontend Engineer @Bytecraft"
+            talkTitle="The Next Frontier of Web Development"
+            bgColor="bg-cyan"
+          />
+        </li>
+        <li class="speakers-list__item">
+          <SpeakerCard
+            imagePath="/src/assets/images/avatar-naomi-tanaka.webp"
+            altText="Naomi Tanaka headshot"
+            name="Naomi Tanaka"
+            description="Accessibility Engineering Lead @Axion"
+            talkTitle="Screen Readers Deserve Better Components"
+            bgColor="bg-light-blue"
+          />
+        </li>
+        <li class="speakers-list__item">
+          <SpeakerCard
+            imagePath="/src/assets/images/avatar-james-okonkwo.webp"
+            altText="James Okonkwo headshot"
+            name="James Okonkwo"
+            description="Engineering Director @Cartwell"
+            talkTitle="Monorepos at Scale: Lessons from 500 Packages"
+            bgColor="bg-purple"
+          />
+        </li>
+        <li class="speakers-list__item">
+          <SpeakerCard
+            imagePath="/src/assets/images/avatar-sarah-lindstrom.webp"
+            altText="Sarah Lindström headshot"
+            name="Sarah Lindström"
+            description="Design Systems Lead @Tessera"
+            talkTitle="Type-Safe Design Tokens Across Platforms"
+            bgColor="bg-yellow"
+          />
+        </li>
+        <li class="speakers-list__item">
+          <SpeakerCard
+            imagePath="/src/assets/images/avatar-priya-sharma.webp"
+            altText="Priya Sharma headshot"
+            name="Priya Sharma"
+            description="Senior Developer Advocate @Cobalt"
+            talkTitle="ARIA Patterns You're Probably Using Wrong"
+            bgColor="bg-light-blue"
+          />
+        </li>
+        <li class="speakers-list__item">
+          <SpeakerCard
+            imagePath="/src/assets/images/avatar-lucas-moreau.webp"
+            altText="Lucas Moreau headshot"
+            name="Lucas Moreau"
+            description="Senior Frontend Engineer @Websmith"
+            talkTitle="Browser DevTools: Hidden Gems for CSS Debugging"
+            bgColor="bg-purple"
+          />
+        </li>
+        <li class="speakers-list__item">
+          <SpeakerCard
+            imagePath="/src/assets/images/avatar-ryan-o-sullivan.webp"
+            altText="Ryan O'Sullivan headshot"
+            name="Ryan O'Sullivan"
+            description="DevTools Engineer @Cobalt"
+            talkTitle="Profiling React Renders at 120fps"
+            bgColor="bg-red"
+          />
+        </li>
+        <li class="speakers-list__item">
+          <SpeakerCard
+            imagePath="/src/assets/images/avatar-tom-kowalski.webp"
+            altText="Tom Kowalski headshot"
+            name="Tom Kowalski"
+            description="Platform Engineer @Nimbus"
+            talkTitle="Deploy Preview Environments That Scale"
+            bgColor="bg-purple"
+          />
+        </li>
+      </ul>
+    </div>
+  </section>
 </BaseLayout>
+
+<style lang="scss">
+  .speakers {
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    &-list {
+      display: grid;
+      gap: clamp(1.25rem, 1.0115rem + 1.0178vw, 1.5rem);
+      padding: 0;
+
+      @include bp(md) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include bp(lg) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @include bp(xl) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  }
+  .button-row {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-xl);
+    width: 100%;
+  }
+</style>

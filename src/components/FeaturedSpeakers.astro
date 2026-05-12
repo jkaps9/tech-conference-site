@@ -102,7 +102,7 @@ import SpeakerCard from "./SpeakerCard.astro";
 <style lang="scss">
   .featured-speakers-list {
     display: grid;
-    gap: 1.25rem;
+    gap: clamp(1.25rem, 1.0115rem + 1.0178vw, 1.5rem);
     padding: 0;
 
     @include bp(md) {
