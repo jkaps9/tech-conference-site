@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+import barcodeSvg from "../assets/images/pattern-barcode.svg?raw";
+import plusSvg from "../assets/images/icon-plus.svg?raw";
+import minusSvg from "../assets/images/icon-minus.svg?raw";
+
+interface Props {
+  category: string;
+  title: string;
+  speakerName: string;
+  speakerCompany: string;
+  startTime: string;
+  endTime: string;
+  dayNum: number;
+  color: string;
+}
+
+const {
+  category,
+  title,
+  speakerName,
+  speakerCompany,
+  startTime,
+  endTime,
+  dayNum,
+  color,
+} = Astro.props;
+---
+
+<div class:list={["highlight-card", `bg-${color}`]}>
+  <div class="highlight-card__headline">
+    <p class=`text-${color}`>{category}</p>
+  </div>
+  <div class="highlight-card__info">
+    <h3>{title}</h3>
+    <div class="speaker-details">
+      <p class="speaker__name">{speakerName}</p>
+      <p class="divider">//</p>
+      <p class="speaker__company">{speakerCompany}</p>
+    </div>
+    <button type="button">
+      <Fragment set:html={plusSvg} />
+      <Fragment set:html={minusSvg} />
+      Show Details
+    </button>
+  </div>
+  <div class="highlight-card__footer">
+    <div class="times">
+      <p class="times__start">{startTime}</p>
+      <p class="times__end">{endTime}</p>
+    </div>
+    <Fragment set:html={barcodeSvg} />
+    <p>Day {dayNum}</p>
+  </div>
+</div>
