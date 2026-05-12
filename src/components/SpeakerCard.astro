@@ -1,0 +1,35 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  imagePath: string;
+  altText: string;
+  name: string;
+  description: string;
+  talkTitle: string;
+}
+
+const { imagePath, altText, name, description, talkTitle } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/*.{jpeg,jpg,png,gif,webp}",
+);
+if (!images[imagePath])
+  throw new Error(
+    `"${imagePath}" does not exist in glob: "src/assets/images/*.{jpeg,jpg,png,gif,webp}"`,
+  );
+---
+
+<div class="speaker-card">
+  <div class="speaker-card__image">
+    <Image
+      src={images[imagePath]()}
+      alt={altText}
+    />
+    <div class="speaker">
+      <h4 class="speaker__name">{name}</h4>
+      <p class="speaker__description">{description}</p>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <p class="talk-title">{talkTitle}</p>
+</div>

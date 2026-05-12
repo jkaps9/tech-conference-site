@@ -2,10 +2,12 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "@components/Hero.astro";
 import Tracks from "@components/Tracks.astro";
+import FeaturedSpeakers from "@components/FeaturedSpeakers.astro";
 const pageTitle = "Home";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <Hero />
   <Tracks />
+  <FeaturedSpeakers />
 </BaseLayout>
