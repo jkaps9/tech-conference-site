@@ -119,8 +119,10 @@ import ArrowSVG from "../assets/images/icon-arrow-right.svg";
       background-color: var(--color-cyan-100);
       color: var(--color-dark-text);
       display: flex;
-
+      flex: 1;
+      overflow: hidden;
       padding: 1.25rem var(--space-sm);
+      position: relative;
 
       p {
         text-transform: uppercase;
@@ -132,6 +134,7 @@ import ArrowSVG from "../assets/images/icon-arrow-right.svg";
           display: flex;
           flex-direction: column;
           gap: 2rem;
+          z-index: 2;
 
           .event {
             align-items: stretch;
@@ -161,17 +164,27 @@ import ArrowSVG from "../assets/images/icon-arrow-right.svg";
           }
 
           @include bp(md) {
+            max-width: 50%;
             padding: 1.5rem;
+          }
+
+          @include bp(lg) {
+            max-width: 55%;
           }
         }
 
         &__image {
           align-items: flex-end;
           display: flex;
+          height: 95%;
+          max-width: 60%;
           overflow: hidden;
-
+          position: absolute;
+          bottom: 0;
+          right: -5.5vw;
+          z-index: 1;
           img {
-            max-height: 378px;
+            height: 100%;
             width: auto;
           }
 
