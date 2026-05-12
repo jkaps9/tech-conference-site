@@ -9,53 +9,61 @@ const pageTitle = "Schedule";
     <div class="container">
       <h2 class="page-header">// {pageTitle}</h2>
       <div class="button-row">
-        <div class="tabs">
-          <button
-            class="btn btn--control-tab active"
-            type="button"
-          >
-            Day 01
-          </button>
-          <button
-            class="btn btn--control-tab"
-            type="button"
-          >
-            Day 02
-          </button>
-          <button
-            class="btn btn--control-tab"
-            type="button"
-          >
-            Day 03
-          </button>
-        </div>
+        <button
+          class="btn btn--control-tab active"
+          type="button"
+        >
+          Day 01
+        </button>
+        <button
+          class="btn btn--control-tab"
+          type="button"
+        >
+          Day 02
+        </button>
+        <button
+          class="btn btn--control-tab"
+          type="button"
+        >
+          Day 03
+        </button>
         <div class="divider divider--vertical"></div>
-        <div class="filters">
-          <button
-            class="btn btn--control-filter"
-            type="button"
-          >
-            Frontend
-          </button>
-          <button
-            class="btn btn--control-filter"
-            type="button"
-          >
-            Performance
-          </button>
-          <button
-            class="btn btn--control-filter"
-            type="button"
-          >
-            A11y
-          </button>
-          <button
-            class="btn btn--control-filter"
-            type="button"
-          >
-            Tooling
-          </button>
-        </div>
+        <button
+          class="btn btn--control-filter"
+          type="button"
+        >
+          Frontend
+        </button>
+        <button
+          class="btn btn--control-filter"
+          type="button"
+        >
+          Performance
+        </button>
+        <button
+          class="btn btn--control-filter"
+          type="button"
+        >
+          A11y
+        </button>
+        <button
+          class="btn btn--control-filter"
+          type="button"
+        >
+          Tooling
+        </button>
+        <button
+          class="btn btn--control-toggle"
+          type="button"
+        >
+          My Schedule
+        </button>
+        <button
+          class="btn btn--control-clear"
+          type="button"
+        >
+          Clear
+        </button>
       </div>
       <div class="divider"></div>
       <ul class="schedule__list">
@@ -133,13 +141,8 @@ const pageTitle = "Schedule";
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-
-      & > * {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
     }
+
     &__list {
       display: grid;
       gap: var(--space-sm);
