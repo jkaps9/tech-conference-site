@@ -53,8 +53,10 @@ const {
       <p class="times__start">{startTime}</p>
       <p class="times__end">{endTime}</p>
     </div>
-    <Fragment set:html={barcodeSvg} />
-    <p>Day {dayNum}</p>
+    <div class="barcode">
+      <Fragment set:html={barcodeSvg} />
+    </div>
+    <p class="day">Day {dayNum}</p>
   </div>
 </div>
 
@@ -106,6 +108,32 @@ const {
         .close-icon {
           display: none;
         }
+      }
+    }
+
+    &__footer {
+      align-items: center;
+      border-top: 1px dashed var(--color-neutral-900);
+      color: var(--color-dark-text);
+      display: flex;
+      gap: var(--space-xs);
+      justify-content: space-between;
+      padding: var(--space-xs) var(--space-sm);
+      text-transform: uppercase;
+
+      .times {
+        text-align: center;
+        &__start {
+          @include type-h4;
+          font-family: var(--font-body);
+        }
+        &__end {
+          @include type-body-xs;
+        }
+      }
+
+      .day {
+        @include type-body-xs;
       }
     }
   }
