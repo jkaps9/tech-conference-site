@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 
+import bgSvg from "../assets/images/pattern-avatar-bg.svg";
+
 interface Props {
   imagePath: string;
   altText: string;
@@ -38,7 +40,7 @@ if (!images[imagePath])
   </div>
 </div>
 
-<style lang="scss">
+<style lang="scss" define:vars={{ svgUrl: `url("${bgSvg.src}")` }}>
   .speaker-card {
     background: var(--color-neutral-800);
     border: 1px solid var(--color-neutral-600);
@@ -47,6 +49,9 @@ if (!images[imagePath])
     height: stretch;
 
     &__image {
+      background-image: var(--svgUrl);
+      background-size: contain;
+      background-position: center;
       img {
         height: auto;
       }
