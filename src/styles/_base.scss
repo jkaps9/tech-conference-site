@@ -209,6 +209,13 @@ section {
   padding: var(--container-pad);
 }
 
+
+a {
+  transition: color 0.3s ease;
+  &:hover{
+    color: var(--color-neutral-100);
+  }
+}
 /*~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~>
 <~~          Utilities         ~~>
 <~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~*/
