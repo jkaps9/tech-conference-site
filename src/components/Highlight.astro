@@ -39,8 +39,12 @@ const {
       <p class="speaker__company">{speakerCompany}</p>
     </div>
     <button type="button">
-      <Fragment set:html={plusSvg} />
-      <Fragment set:html={minusSvg} />
+      <div class="open-icon">
+        <Fragment set:html={plusSvg} />
+      </div>
+      <div class="close-icon">
+        <Fragment set:html={minusSvg} />
+      </div>
       Show Details
     </button>
   </div>
@@ -53,3 +57,56 @@ const {
     <p>Day {dayNum}</p>
   </div>
 </div>
+
+<style lang="scss">
+  .highlight-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-neutral-600);
+
+    &__headline {
+      background: var(--color-neutral-900);
+      display: flex;
+      justify-content: center;
+      padding: rem(6) 0;
+      text-transform: uppercase;
+    }
+
+    &__info {
+      padding: var(--space-sm);
+
+      h3 {
+        @include type-h2;
+        color: var(--color-dark-text);
+        margin-bottom: var(--space-xs);
+        text-transform: lowercase;
+      }
+
+      .speaker-details {
+        color: var(--color-medium-text);
+        display: flex;
+        gap: rem(10);
+        text-transform: uppercase;
+        margin-bottom: var(--space-sm);
+
+        .speaker__name {
+          color: var(--color-dark-text);
+          font-weight: 700;
+        }
+      }
+
+      button {
+        @include type-body-xs;
+        align-items: center;
+        color: var(--color-medium-text);
+        display: flex;
+        gap: rem(4);
+        padding: 0;
+        text-transform: uppercase;
+        .close-icon {
+          display: none;
+        }
+      }
+    }
+  }
+</style>
