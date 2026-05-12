@@ -228,8 +228,12 @@ section {
 .container {
   width: 95%;
   margin: auto; /* TODO: revisit if i like this*/
-  max-width: rem(1360);
+  max-width: var(--container-max);
   position: relative;
+
+@include bp-max(md){
+   width: 90%;
+  }
 }
 
 .row {
@@ -252,6 +256,10 @@ section {
 
 section .list-header {
   margin-bottom: 1.5rem;
+}
+
+.page-header {
+  text-transform: lowercase;
 }
 
 .text-yellow {
