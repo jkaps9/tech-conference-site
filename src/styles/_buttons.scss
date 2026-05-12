@@ -79,8 +79,8 @@
     &:hover {
       background: var(--color-neutral-900);
       border-color: var(--color-neutral-600);
-       box-shadow: 2px 2px 0 0 var(--color-neutral-600);
-       color: var(--color-neutral-100);
+      box-shadow: 2px 2px 0 0 var(--color-neutral-600);
+      color: var(--color-neutral-100);
     }
 
     &:active {
@@ -90,25 +90,25 @@
   }
 
   &[class*="--control"] {
-  font-size: 0.875rem;
-  box-shadow: none;
-  font-weight: 500;
-  gap: var(--space-xs);
-  padding: var(--space-xs) var(--space-sm);
+    font-size: 0.875rem;
+    box-shadow: none;
+    font-weight: 500;
+    gap: var(--space-xs);
+    padding: var(--space-xs) var(--space-sm);
 
-  &:hover{
-    background: var(--color-neutral-900);
-    border-color: var(--color-green-200);
-    box-shadow: 2px 2px 0 0 var(--color-green-200);
-    color: var(--color-green-200);
+    &:hover {
+      background: var(--color-neutral-900);
+      border-color: var(--color-green-200);
+      box-shadow: 2px 2px 0 0 var(--color-green-200);
+      color: var(--color-green-200);
+    }
+
+    &.active {
+      border-color: var(--color-green-200);
+      background-color: var(--color-green-200);
+      color: var(--color-dark-text);
+    }
   }
-  
-  &.active {
-    border-color: var(--color-green-200);
-    background-color: var(--color-green-200);
-    color: var(--color-dark-text);
-  }
-}
 
   &--control-filter {
     border-color: var(--color-neutral-500);
@@ -131,7 +131,7 @@
     border-radius: var(--radius-pill);
     color: var(--color-red-300);
 
-    &:hover {
+    &[class*="--control"]:hover {
       border-color: var(--color-red-300);
       box-shadow: 2px 2px 0 0 var(--color-red-300);
       color: var(--color-red-300);
