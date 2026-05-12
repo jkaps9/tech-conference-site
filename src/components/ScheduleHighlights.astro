@@ -1,5 +1,5 @@
 ---
-import Highlight from "./Highlight.astro";
+import ScheduleComponent from "./ScheduleComponent.astro";
 ---
 
 <section class="schedule-highlights">
@@ -7,7 +7,7 @@ import Highlight from "./Highlight.astro";
     <h2 class="list-header">// Schedule_Highlights</h2>
     <ul class="schedule-highlights__list">
       <li class="schedule-highlights__item">
-        <Highlight
+        <ScheduleComponent
           category="Performance"
           title="Video Compression for the Web: The Middle-Out Approach"
           description="Modern video compression on the web is stuck between bloated codecs and unacceptable quality tradeoffs. Dinesh presents Pied Piper's middle-out compression approach adapted for browser-based video delivery — achieving dramatically better compression ratios without sacrificing visual fidelity. He covers the WebCodecs API, adaptive bitrate strategies, and the real-world performance gains from rethinking how video data flows from server to screen."
@@ -21,7 +21,7 @@ import Highlight from "./Highlight.astro";
         />
       </li>
       <li class="schedule-highlights__item">
-        <Highlight
+        <ScheduleComponent
           category="Frontend"
           title="CSS Container Queries in Production"
           description="Container queries have shipped in every major browser, but adoption in production remains low. Mei-Lin shares Roamly's journey of replacing hundreds of JavaScript-based responsive components with pure CSS container queries — the migration strategy, the surprising edge cases, and the performance wins that came from removing resize observers entirely."
@@ -35,7 +35,7 @@ import Highlight from "./Highlight.astro";
         />
       </li>
       <li class="schedule-highlights__item">
-        <Highlight
+        <ScheduleComponent
           category="Accessibility"
           title="Designing Accessible Audio Experiences"
           description="Audio-heavy web applications present unique accessibility challenges that go beyond alt text and captions. Fatima shares how Spectra's team redesigned the web player's interface to work seamlessly with screen readers, keyboard navigation, and alternative input devices — without compromising the rich, visual experience that sighted users expect."
@@ -49,7 +49,7 @@ import Highlight from "./Highlight.astro";
         />
       </li>
       <li class="schedule-highlights__item">
-        <Highlight
+        <ScheduleComponent
           category="Tooling"
           title="Deploy Preview Environments That Scale"
           description="Every pull request deserves a live preview, but spinning up isolated environments for hundreds of daily PRs is an infrastructure challenge. Tom explains how Nimbus's preview deployment system handles ephemeral environments at scale — from instant cold starts and database branching to URL routing and automatic cleanup."
