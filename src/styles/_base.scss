@@ -17,6 +17,10 @@
   --color-heading-text: #{$color-green-200};
   --color-green-200: #{$color-green-200};
   --color-cyan-100: #{$color-cyan-100};
+  --color-blue-100: #{$color-blue-100};
+  --color-yellow-100: #{$color-yellow-100};
+  --color-purple-100: #{$color-purple-100};
+  --color-red-100: #{$color-red-100};
   --color-neutral-100: #{$color-neutral-100};
   --color-neutral-600: #{$color-neutral-600};
   --color-neutral-800: #{$color-neutral-800};
@@ -237,6 +241,33 @@ section {
 .card-title {
   // TODO: check if this should be a utility, or only for the hero
   @include type-body-sm;
+}
+
+.list-header {
+  @include type-body-sm;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+section .list-header {
+  margin-bottom: 1.5rem;
+}
+
+.text-yellow {
+  color: var(--color-yellow-100);
+}
+
+.text-red {
+  color: var(--color-red-100);
+}
+
+.text-light-blue {
+  color: var(--color-blue-100);
+}
+
+.text-purple {
+  color: var(--color-purple-100);
 }
 
 /* Skip to main content link - accessible to keyboard users and screen readers */

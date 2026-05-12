@@ -1,0 +1,67 @@
+---
+
+---
+
+<section class="tracks">
+  <div class="container">
+    <h2 class="list-header">// Tracks</h2>
+    <ul class="track-list">
+      <li class="track-list__item">
+        <h3 class="track__title text-yellow">Frontend</h3>
+        <p class="track__description">Building modern interfaces for the web</p>
+      </li>
+      <li class="track-list__item">
+        <h3 class="track__title text-red">Performance</h3>
+        <p class="track__description">Make every millisecond count</p>
+      </li>
+      <li class="track-list__item">
+        <h3 class="track__title text-light-blue">Accessibility</h3>
+        <p class="track__description">
+          Building inclusive experiences for everyone
+        </p>
+      </li>
+      <li class="track-list__item">
+        <h3 class="track__title text-purple">Tooling</h3>
+        <p class="track__description">Level up your developer workflow</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<style lang="scss">
+  .track-list {
+    display: grid;
+    gap: clamp(var(--space-sm), 1.338rem + -0.3756vw, var(--space-md));
+    padding: 0;
+
+    @include bp(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include bp(xl) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    &__item {
+      background: var(--color-neutral-900);
+      border: 1px solid var(--color-neutral-100);
+      box-shadow: 2px 2px 0 0 var(--color-neutral-100);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      padding: var(--space-sm) var(--space-md);
+    }
+  }
+  .track {
+    &__title {
+      text-transform: lowercase;
+    }
+
+    &__description {
+      @include type-body-sm;
+      font-weight: 500;
+      max-width: 27ch;
+      text-transform: uppercase;
+    }
+  }
+</style>
