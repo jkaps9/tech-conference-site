@@ -102,9 +102,20 @@ import SpeakerCard from "./SpeakerCard.astro";
 <style lang="scss">
   .featured-speakers-list {
     display: grid;
-    gap: clamp(1.25rem, 0.9643rem + 0.5952vw, var(--space-md));
-    grid-template-columns: repeat(auto-fit, minmax(rem(318), 1fr));
+    gap: 1.25rem;
     padding: 0;
+
+    @include bp(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include bp(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include bp(xl) {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 
   .button-row {
