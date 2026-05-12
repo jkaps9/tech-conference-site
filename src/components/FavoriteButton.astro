@@ -22,6 +22,20 @@ const { isFavorite = false } = Astro.props;
   </div>
 </button>
 
+<script>
+  const favButtons = document.querySelectorAll(".btn--fav");
+  favButtons.forEach((btn) => {
+    // TODO: add functionality to add this to a favorites list
+    btn.addEventListener("click", () => {
+      if (btn.classList.contains("favorite")) {
+        btn.classList.remove("favorite");
+      } else {
+        btn.classList.add("favorite");
+      }
+    });
+  });
+</script>
+
 <style lang="scss">
   .btn--fav {
     background-color: var(--color-neutral-900);
