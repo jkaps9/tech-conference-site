@@ -7,9 +7,11 @@ interface Props {
   name: string;
   description: string;
   talkTitle: string;
+  bgColor: string;
 }
 
-const { imagePath, altText, name, description, talkTitle } = Astro.props;
+const { imagePath, altText, name, description, talkTitle, bgColor } =
+  Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/images/*.{jpeg,jpg,png,gif,webp}",
 );
@@ -20,7 +22,7 @@ if (!images[imagePath])
 ---
 
 <div class="speaker-card">
-  <div class="speaker-card__image">
+  <div class:list={["speaker-card__image", bgColor]}>
     <Image
       src={images[imagePath]()}
       alt={altText}

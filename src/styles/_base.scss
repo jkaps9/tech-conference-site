@@ -270,6 +270,27 @@ section .list-header {
   color: var(--color-purple-100);
 }
 
+.bg-yellow {
+  background-color: var(--color-yellow-100);
+}
+
+.bg-red {
+  background-color: var(--color-red-100);
+}
+
+.bg-light-blue {
+  background-color: var(--color-blue-100);
+}
+
+.bg-purple {
+  background-color: var(--color-purple-100);
+}
+
+.bg-cyan {
+  background-color: var(--color-cyan-100);
+}
+
+
 /* Skip to main content link - accessible to keyboard users and screen readers */
 .skip {
   position: absolute;
