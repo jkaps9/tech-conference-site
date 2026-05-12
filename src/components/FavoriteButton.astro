@@ -59,5 +59,20 @@ const { isFavorite = false } = Astro.props;
         display: none;
       }
     }
+
+    &:hover {
+      .empty {
+        svg * {
+          // TODO: get this to work
+          fill: var(--color-green-200);
+        }
+      }
+    }
+
+    &:active {
+      box-shadow:
+        0 0 0 2px var(--color-cyan-100),
+        0 0 0 4px var(--color-neutral-900);
+    }
   }
 </style>
