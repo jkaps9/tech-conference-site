@@ -1,10 +1,149 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import InnerHero from "@components/InnerHero.astro";
-
+import Highlight from "@components/Highlight.astro";
 const pageTitle = "Schedule";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <InnerHero pageTitle={pageTitle} />
+  <section class="schedule">
+    <div class="container">
+      <h2 class="page-header">// {pageTitle}</h2>
+      <div class="button-row">
+        <div class="tabs">
+          <button
+            class="btn btn--control-tab active"
+            type="button"
+          >
+            Day 01
+          </button>
+          <button
+            class="btn btn--control-tab"
+            type="button"
+          >
+            Day 02
+          </button>
+          <button
+            class="btn btn--control-tab"
+            type="button"
+          >
+            Day 03
+          </button>
+        </div>
+        <div class="divider divider--vertical"></div>
+        <div class="filters">
+          <button
+            class="btn btn--control-filter"
+            type="button"
+          >
+            Frontend
+          </button>
+          <button
+            class="btn btn--control-filter"
+            type="button"
+          >
+            Performance
+          </button>
+          <button
+            class="btn btn--control-filter"
+            type="button"
+          >
+            A11y
+          </button>
+          <button
+            class="btn btn--control-filter"
+            type="button"
+          >
+            Tooling
+          </button>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <ul class="schedule__list">
+        <li class="schedule__item">
+          <Highlight
+            category="Performance"
+            title="Video Compression for the Web: The Middle-Out Approach"
+            description="Modern video compression on the web is stuck between bloated codecs and unacceptable quality tradeoffs. Dinesh presents Pied Piper's middle-out compression approach adapted for browser-based video delivery — achieving dramatically better compression ratios without sacrificing visual fidelity. He covers the WebCodecs API, adaptive bitrate strategies, and the real-world performance gains from rethinking how video data flows from server to screen."
+            location="Room B"
+            speakerName="Dinesh Chugtai"
+            speakerCompany="Pied Piper"
+            startTime="11:00"
+            endTime="12:00"
+            dayNum={1}
+            color="red"
+          />
+        </li>
+        <li class="schedule__item">
+          <Highlight
+            category="Frontend"
+            title="CSS Container Queries in Production"
+            description="Container queries have shipped in every major browser, but adoption in production remains low. Mei-Lin shares Roamly's journey of replacing hundreds of JavaScript-based responsive components with pure CSS container queries — the migration strategy, the surprising edge cases, and the performance wins that came from removing resize observers entirely."
+            location="Room A"
+            speakerName="Mei-Lin Zhang"
+            speakerCompany="Roamly"
+            startTime="13:00"
+            endTime="14:00"
+            dayNum={1}
+            color="yellow"
+          />
+        </li>
+        <li class="schedule__item">
+          <Highlight
+            category="Accessibility"
+            title="Designing Accessible Audio Experiences"
+            description="Audio-heavy web applications present unique accessibility challenges that go beyond alt text and captions. Fatima shares how Spectra's team redesigned the web player's interface to work seamlessly with screen readers, keyboard navigation, and alternative input devices — without compromising the rich, visual experience that sighted users expect."
+            location="Room C"
+            speakerName="Fatima Al-Rashid"
+            speakerCompany="Spectra"
+            startTime="11:00"
+            endTime="12:00"
+            dayNum={2}
+            color="light-blue"
+          />
+        </li>
+        <li class="schedule__item">
+          <Highlight
+            category="Tooling"
+            title="Deploy Preview Environments That Scale"
+            description="Every pull request deserves a live preview, but spinning up isolated environments for hundreds of daily PRs is an infrastructure challenge. Tom explains how Nimbus's preview deployment system handles ephemeral environments at scale — from instant cold starts and database branching to URL routing and automatic cleanup."
+            location="Room D"
+            speakerName="Tom Kowalski"
+            speakerCompany="Nimbus"
+            startTime="12:00"
+            endTime="13:00"
+            dayNum={3}
+            color="purple"
+          />
+        </li>
+      </ul>
+    </div>
+  </section>
 </BaseLayout>
+
+<style lang="scss">
+  .schedule {
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .button-row {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      & > * {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+    }
+    &__list {
+      display: grid;
+      gap: var(--space-sm);
+      padding: 0;
+    }
+  }
+</style>

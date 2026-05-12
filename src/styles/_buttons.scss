@@ -88,4 +88,34 @@
       color: var(--color-dark-text);
     }
   }
+
+  &[class*="--control"] {
+  font-size: 0.875rem;
+  box-shadow: none;
+  font-weight: 500;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+
+  &:hover{
+    background: var(--color-neutral-900);
+    border-color: var(--color-green-200);
+    box-shadow: 2px 2px 0 0 var(--color-green-200);
+    color: var(--color-green-200);
+  }
+  
+  &.active {
+    border-color: var(--color-green-200);
+    background-color: var(--color-green-200);
+    color: var(--color-dark-text);
+  }
+}
+
+  &--control-tab {
+   
+  }
+
+  &--control-filter {
+    border-color: var(--color-neutral-500);
+    border-radius: var(--radius-pill);
+  }
 }

@@ -22,6 +22,7 @@
   --color-purple-100: #{$color-purple-100};
   --color-red-100: #{$color-red-100};
   --color-neutral-100: #{$color-neutral-100};
+  --color-neutral-500: #{$color-neutral-500};
   --color-neutral-600: #{$color-neutral-600};
   --color-neutral-800: #{$color-neutral-800};
   --color-neutral-900: #{$color-neutral-900};
@@ -272,6 +273,11 @@ section .list-header {
 .divider {
   background-color: var(--color-neutral-600);
   height: 1px;
+
+  &--vertical {
+    height: 1.5rem;
+    width: 1px;
+  }
 }
 
 .text-yellow {
