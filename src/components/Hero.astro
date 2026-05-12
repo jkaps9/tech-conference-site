@@ -57,7 +57,7 @@ import ArrowSVG from "../assets/images/icon-arrow-right.svg";
       flex-direction: column;
       gap: clamp(1.5rem, 0.9286rem + 1.1905vw, 2rem);
 
-      @include bp(lg) {
+      @include bp(xl) {
         flex-direction: row;
         width: stretch;
       }
@@ -108,7 +108,7 @@ import ArrowSVG from "../assets/images/icon-arrow-right.svg";
         }
       }
 
-      @include bp(lg) {
+      @include bp(xl) {
         max-width: 57%;
       }
     }
@@ -190,6 +190,10 @@ import ArrowSVG from "../assets/images/icon-arrow-right.svg";
 
           @include bp-max(md) {
             display: none;
+          }
+
+          @include bp(xl) {
+            max-width: 80%;
           }
         }
       }
