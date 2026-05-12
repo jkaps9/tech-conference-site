@@ -87,6 +87,15 @@ import SpeakerCard from "./SpeakerCard.astro";
         />
       </li>
     </ul>
+
+    <div class="button-row">
+      <a
+        href="tech-conference-site/speakers/"
+        class="btn"
+      >
+        view all speakers
+      </a>
+    </div>
   </div>
 </section>
 
@@ -96,5 +105,12 @@ import SpeakerCard from "./SpeakerCard.astro";
     gap: clamp(1.25rem, 0.9643rem + 0.5952vw, var(--space-md));
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     padding: 0;
+  }
+
+  .button-row {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-xl);
+    width: 100%;
   }
 </style>
