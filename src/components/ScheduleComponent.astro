@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import barcodeSvg from "../assets/images/pattern-barcode.svg?raw";
 import plusSvg from "../assets/images/icon-plus.svg?raw";
 import minusSvg from "../assets/images/icon-minus.svg?raw";
+import FavoriteButton from "./FavoriteButton.astro";
 
 interface Props {
   category: string;
@@ -15,6 +16,8 @@ interface Props {
   endTime: string;
   dayNum: number;
   color: string;
+  includeFavoriteButton?: boolean;
+  favorite?: boolean;
 }
 
 const {
@@ -28,6 +31,8 @@ const {
   endTime,
   dayNum,
   color,
+  includeFavoriteButton = false,
+  favorite = false,
 } = Astro.props;
 ---
 
@@ -68,7 +73,9 @@ const {
     <div class="barcode">
       <Fragment set:html={barcodeSvg} />
     </div>
-    <p class="day">Day {dayNum}</p>
+
+    {!includeFavoriteButton && <p class="day">Day {dayNum}</p>}
+    {includeFavoriteButton && <FavoriteButton isFavorite={favorite} />}
   </div>
 </div>
 

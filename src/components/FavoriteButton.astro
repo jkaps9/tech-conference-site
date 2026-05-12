@@ -1,0 +1,49 @@
+---
+import StarEmptySvg from "../assets/images/icon-star-empty.svg";
+import StarFilledSvg from "../assets/images/icon-star-filled.svg";
+
+interface Props {
+  isFavorite?: boolean;
+}
+
+const { isFavorite = false } = Astro.props;
+---
+
+<!-- prettier-ignore -->
+<button
+  type="button"
+  class:list={['btn--fav', { 'favorite': isFavorite }]}
+>
+  <div class="empty">
+    <StarEmptySvg />
+  </div>
+  <div class="filled">
+    <StarFilledSvg />
+  </div>
+</button>
+
+<style lang="scss">
+  .btn--fav {
+    background-color: var(--color-neutral-900);
+    border-radius: var(--radius-pill);
+    align-items: center;
+    display: flex;
+    padding: 0.5rem;
+
+    .filled {
+      display: none;
+    }
+    .empty {
+      display: block;
+    }
+
+    &.favorite {
+      .filled {
+        display: block;
+      }
+      .empty {
+        display: none;
+      }
+    }
+  }
+</style>
