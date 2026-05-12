@@ -48,6 +48,12 @@ if (!images[imagePath])
     flex-direction: column;
     height: stretch;
 
+    &:hover {
+      border-color: var(--color-neutral-100);
+      box-shadow: 4px 4px 0 0 var(--color-neutral-100);
+      cursor: pointer;
+    }
+
     &__image {
       background-image: var(--svgUrl);
       background-size: contain;
