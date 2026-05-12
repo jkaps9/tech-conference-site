@@ -47,7 +47,10 @@ const {
       <p>{description}</p>
       <p class="location">{location}</p>
     </div>
-    <button type="button">
+    <button
+      type="button"
+      data-expand-details-button
+    >
       <div class="open-icon">
         <Fragment set:html={plusSvg} />
       </div>
@@ -68,6 +71,23 @@ const {
     <p class="day">Day {dayNum}</p>
   </div>
 </div>
+
+<script>
+  const infoSections = document.querySelectorAll(".highlight-card__info");
+
+  infoSections.forEach((infoSection) => {
+    const btn = infoSection.querySelector("[data-expand-details-button]");
+    if (btn) {
+      btn.addEventListener("click", () => {
+        if (infoSection.classList.contains("expanded")) {
+          infoSection.classList.remove("expanded");
+        } else {
+          infoSection.classList.add("expanded");
+        }
+      });
+    }
+  });
+</script>
 
 <style lang="scss">
   .highlight-card {
@@ -128,11 +148,26 @@ const {
         }
       }
 
+      &.expanded {
+        .event-details {
+          display: flex;
+        }
+
+        button {
+          .close-icon {
+            display: block;
+          }
+          .open-icon {
+            display: none;
+          }
+        }
+      }
+
       .event-details {
-        display: flex;
+        display: none;
         flex-direction: column;
         gap: rem(12);
-
+        padding: rem(12) 0;
         .divider {
           background-color: var(--color-neutral-600);
           height: 1px;
@@ -159,6 +194,9 @@ const {
         text-transform: uppercase;
         .close-icon {
           display: none;
+        }
+        .open-icon {
+          display: block;
         }
       }
     }
