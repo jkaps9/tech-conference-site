@@ -275,18 +275,34 @@ section .list-header {
 }
 
 .text-yellow {
+  .track-list__item:has(&):hover {
+    border-color: var(--color-yellow-100);
+    box-shadow: 4px 4px 0 0 var(--color-yellow-100);
+  }
   color: var(--color-yellow-100);
 }
 
 .text-red {
+  .track-list__item:has(&):hover {
+    border-color: var(--color-red-100);
+    box-shadow: 4px 4px 0 0 var(--color-red-100);
+  }
   color: var(--color-red-100);
 }
 
 .text-light-blue {
+  .track-list__item:has(&):hover {
+    border-color: var(--color-blue-100);
+    box-shadow: 4px 4px 0 0 var(--color-blue-100);
+  }
   color: var(--color-blue-100);
 }
 
 .text-purple {
+  .track-list__item:has(&):hover {
+    border-color: var(--color-purple-100);
+    box-shadow: 4px 4px 0 0 var(--color-purple-100);
+  }
   color: var(--color-purple-100);
 }
 
