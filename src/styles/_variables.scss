@@ -41,7 +41,7 @@ $space-xxl: 6rem;
 
 // --- Layout
 $container-max: 1360px;
-$container-pad: 1.5rem 0;
+$container-pad: clamp(2rem, 1.5229rem + 2.0356vw, 2.5rem) 0 clamp(2rem, 0.0916rem + 8.1425vw, 4rem);
 
 // --- Border radius
 $radius-sm: 4px;

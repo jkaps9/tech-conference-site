@@ -262,6 +262,11 @@ section .list-header {
   text-transform: lowercase;
 }
 
+.divider {
+  background-color: var(--color-neutral-600);
+  height: 1px;
+}
+
 .text-yellow {
   color: var(--color-yellow-100);
 }
