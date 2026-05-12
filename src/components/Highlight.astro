@@ -57,7 +57,7 @@ const {
       <div class="close-icon">
         <Fragment set:html={minusSvg} />
       </div>
-      Show Details
+      <span>Show Details</span>
     </button>
   </div>
   <div class="highlight-card__footer">
@@ -79,10 +79,13 @@ const {
     const btn = infoSection.querySelector("[data-expand-details-button]");
     if (btn) {
       btn.addEventListener("click", () => {
+        const txt = btn.querySelector("span");
         if (infoSection.classList.contains("expanded")) {
           infoSection.classList.remove("expanded");
+          if (txt) txt.textContent = "Show Details";
         } else {
           infoSection.classList.add("expanded");
+          if (txt) txt.textContent = "Hide Details";
         }
       });
     }
