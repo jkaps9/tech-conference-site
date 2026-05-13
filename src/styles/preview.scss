@@ -1,0 +1,14 @@
+@use "variables" as *;
+
+html,
+body {
+  font-size: $font-size-base;
+}
+
+body {
+  padding: 20px;
+}
+
+strong {
+  margin-bottom: 1em;
+}
