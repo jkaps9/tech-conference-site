@@ -1,29 +1,25 @@
 ---
+import { getCollection } from "astro:content";
 
+const tracks = await getCollection("track");
+
+const trackList = tracks.filter((t) => t.data.name !== "Keynote");
 ---
 
 <section class="tracks">
   <div class="container">
     <h2 class="list-header">// Tracks</h2>
     <ul class="track-list">
-      <li class="track-list__item">
-        <h3 class="track__title text-yellow">Frontend</h3>
-        <p class="track__description">Building modern interfaces for the web</p>
-      </li>
-      <li class="track-list__item">
-        <h3 class="track__title text-red">Performance</h3>
-        <p class="track__description">Make every millisecond count</p>
-      </li>
-      <li class="track-list__item">
-        <h3 class="track__title text-light-blue">Accessibility</h3>
-        <p class="track__description">
-          Building inclusive experiences for everyone
-        </p>
-      </li>
-      <li class="track-list__item">
-        <h3 class="track__title text-purple">Tooling</h3>
-        <p class="track__description">Level up your developer workflow</p>
-      </li>
+      {
+        trackList.map((track) => (
+          <li class="track-list__item">
+            <h3 class:list={["track__title", `text-${track.data.color}`]}>
+              {track.data.name}
+            </h3>
+            <p class="track__description">{track.data.description}</p>
+          </li>
+        ))
+      }
     </ul>
   </div>
 </section>
