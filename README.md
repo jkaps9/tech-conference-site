@@ -59,7 +59,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/jkaps9/tech-conference-site](https://github.com/jkaps9/tech-conference-site)
-- Live Site URL: [http://jkaps9.github.io/tech-conference-site](http://jkaps9.github.io/tech-conference-site)
+- Live Site URL: [https://devhorizon26.netlify.app/](https://devhorizon26.netlify.app/)
 
 ## My process
 

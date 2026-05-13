@@ -5,8 +5,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://jkaps9.github.io/", //TODO: update me!
-  base: "/tech-conference-site",
+  site: "https://devhorizon26.netlify.app/",
   fonts: [
 {
       provider: fontProviders.fontsource(),
