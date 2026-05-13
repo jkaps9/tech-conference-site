@@ -11,7 +11,7 @@
       content="noindex"
     />
     <link
-      href="/admin/config.yml"
+      href="/tech-conference-site/admin/config.yml"
       type="text/yaml"
       rel="cms-config-url"
     />
@@ -19,18 +19,13 @@
   </head>
   <body>
     <!-- Dashboard script-->
-    <script
-      is:inline
-      src="https://unpkg.com/decap-cms@^3.8.3/dist/decap-cms.js"
-    >
-    </script>
+    <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
 
     <!-- netlify identity -->
     <script
       is:inline
       src="https://identity.netlify.com/v1/netlify-identity-widget.js"
-    >
-    </script>
+    ></script>
 
     <!-- Customize the netlify identity widget to refresh on logout preventing users from using the cms when not logged in and then seeing an error -->
     <script is:inline>
