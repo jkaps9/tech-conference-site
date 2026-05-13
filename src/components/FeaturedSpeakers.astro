@@ -12,99 +12,18 @@ const featuredSpeakers = speakers.filter((s) => s.data.featured);
     <ul class="featured-speakers-list">
       {
         featuredSpeakers.map((speaker) => (
-          // <pre>{JSON.stringify(speaker.data.avatar, null, 2)}</pre>
               <li class="featured-speakers-list__item">
-            <SpeakerCard
-              image={speaker.data.avatar}
-              altText=`${speaker.data.name} headshot`
-              name=`${speaker.data.name}`
-              description=`${speaker.data.role} @${speaker.data.company}`
-              talkTitle="TBD"
-              bgColor=`bg-${speaker.data.color}`
-            />
+                <SpeakerCard
+                  image={speaker.data.avatar}
+                  altText=`${speaker.data.name} headshot`
+                  name=`${speaker.data.name}`
+                  description=`${speaker.data.role} @${speaker.data.company}`
+                  talkTitle="TBD"
+                  bgColor=`bg-${speaker.data.color}`
+                />
           </li>
         ))
       }
-      <!-- <li class="featured-speakers-list__item">
-        <SpeakerCard
-          imagePath="/src/assets/images/avatar-elena-vasquez.webp"
-          altText="Elena Vasquez headshot"
-          name="Elena Vasquez"
-          description="Principal Frontend Engineer @Bytecraft"
-          talkTitle="The Next Frontier of Web Development"
-          bgColor="bg-cyan"
-        />
-      </li>
-      <li class="featured-speakers-list__item">
-        <SpeakerCard
-          imagePath="/src/assets/images/avatar-naomi-tanaka.webp"
-          altText="Naomi Tanaka headshot"
-          name="Naomi Tanaka"
-          description="Accessibility Engineering Lead @Axion"
-          talkTitle="Screen Readers Deserve Better Components"
-          bgColor="bg-light-blue"
-        />
-      </li>
-      <li class="featured-speakers-list__item">
-        <SpeakerCard
-          imagePath="/src/assets/images/avatar-james-okonkwo.webp"
-          altText="James Okonkwo headshot"
-          name="James Okonkwo"
-          description="Engineering Director @Cartwell"
-          talkTitle="Monorepos at Scale: Lessons from 500 Packages"
-          bgColor="bg-purple"
-        />
-      </li>
-      <li class="featured-speakers-list__item">
-        <SpeakerCard
-          imagePath="/src/assets/images/avatar-sarah-lindstrom.webp"
-          altText="Sarah Lindström headshot"
-          name="Sarah Lindström"
-          description="Design Systems Lead @Tessera"
-          talkTitle="Type-Safe Design Tokens Across Platforms"
-          bgColor="bg-yellow"
-        />
-      </li>
-      <li class="featured-speakers-list__item">
-        <SpeakerCard
-          imagePath="/src/assets/images/avatar-priya-sharma.webp"
-          altText="Priya Sharma headshot"
-          name="Priya Sharma"
-          description="Senior Developer Advocate @Cobalt"
-          talkTitle="ARIA Patterns You're Probably Using Wrong"
-          bgColor="bg-light-blue"
-        />
-      </li>
-      <li class="featured-speakers-list__item">
-        <SpeakerCard
-          imagePath="/src/assets/images/avatar-lucas-moreau.webp"
-          altText="Lucas Moreau headshot"
-          name="Lucas Moreau"
-          description="Senior Frontend Engineer @Websmith"
-          talkTitle="Browser DevTools: Hidden Gems for CSS Debugging"
-          bgColor="bg-purple"
-        />
-      </li>
-      <li class="featured-speakers-list__item">
-        <SpeakerCard
-          imagePath="/src/assets/images/avatar-ryan-o-sullivan.webp"
-          altText="Ryan O'Sullivan headshot"
-          name="Ryan O'Sullivan"
-          description="DevTools Engineer @Cobalt"
-          talkTitle="Profiling React Renders at 120fps"
-          bgColor="bg-red"
-        />
-      </li>
-      <li class="featured-speakers-list__item">
-        <SpeakerCard
-          imagePath="/src/assets/images/avatar-tom-kowalski.webp"
-          altText="Tom Kowalski headshot"
-          name="Tom Kowalski"
-          description="Platform Engineer @Nimbus"
-          talkTitle="Deploy Preview Environments That Scale"
-          bgColor="bg-purple"
-        />
-      </li> -->
     </ul>
 
     <div class="button-row">
