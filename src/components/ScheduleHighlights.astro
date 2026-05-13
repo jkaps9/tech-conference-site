@@ -1,11 +1,24 @@
 ---
+import { getCollection } from "astro:content";
 import ScheduleComponent from "./ScheduleComponent.astro";
+
+const talks = await getCollection("talk");
+const highlightedTalks = talks.filter((t) => t.data.highlighted);
 ---
 
 <section class="schedule-highlights">
   <div class="container">
     <h2 class="list-header">// Schedule_Highlights</h2>
     <ul class="schedule-highlights__list">
+      {
+        highlightedTalks.map((talk) => (
+          // <pre>{JSON.stringify(talk.data, null, 2)}</pre>
+          <li class="schedule-highlights__item">
+            <ScheduleComponent talk={talk.data} />
+          </li>
+        ))
+      }
+
       <li class="schedule-highlights__item">
         <ScheduleComponent
           category="Performance"

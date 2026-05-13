@@ -16,7 +16,7 @@ const tracksCollection = defineCollection({
 });
 
 const speakersCollection = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.md", base: "./src/content/speakers" }),
+  loader: glob({ pattern: "**/[^_]*.md", base: "./src/content/speakers", id: ({ data }) => data.name}),
   schema: ({ image }) =>
     z.object({
       name: z.string(),
