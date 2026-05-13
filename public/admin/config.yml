@@ -28,3 +28,18 @@ collections:
       - { label: "Bio", name: "bio", widget: "text"}
       - { label: "Featured", name: "featured", widget: "boolean", default: false}
       - { label: "Color", name: "color", widget: "select", options: ["yellow","red","light-blue","purple","cyan"] }
+  - name: "talks"
+    label: "Talks"
+    folder: "src/content/talks"
+    create: true
+    slug: "{{fields.title}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string"}
+      - { label: "Speaker", name: "speaker", widget: "relation", collection: "speakers", search_fields: ["name"], value_field: "name", display_fields: ["name"] }
+      - { label: "Track", name: "track", widget: "relation", collection: "tracks", search_fields: ["name"], value_field: "name", display_fields: ["name"]}
+      - { label: "Description", name: "description", widget: "text"}
+      - { label: "Day", name: "day", widget: "number", min: 1, max: 3, step: 1, value_type: "int", default: 1}
+      - { label: "Start Time", name: "startTime", widget: "datetime", time_format: "HH:mm"}
+      - { label: "End Time", name: "endTime", widget: "datetime", time_format: "HH:mm"}
+      - { label: "Location", name: "location", widget: "string"}
+      - { label: "Highlighted", name: "highlighted", widget: "boolean", default: false}
