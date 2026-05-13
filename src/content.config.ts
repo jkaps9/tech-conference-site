@@ -14,5 +14,19 @@ const tracksCollection = defineCollection({
       color: z.string(),
     }),
 });
+
+const speakersCollection = defineCollection({
+  loader: glob({ pattern: "**/[^_]*.md", base: "./src/content/speakers" }),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      role: z.string(),
+      company: z.string(),
+      avatar: image(),
+      bio: z.string(),
+      featured: z.boolean().optional().default(false),
+      color: z.string(),
+    }),
+});
 // Export a single `collections` object to register your collection(s)
-export const collections = { track: tracksCollection };
+export const collections = { track: tracksCollection, speaker: speakersCollection };

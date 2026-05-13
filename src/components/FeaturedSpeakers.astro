@@ -1,12 +1,31 @@
 ---
+import { getCollection } from "astro:content";
 import SpeakerCard from "./SpeakerCard.astro";
+
+const speakers = await getCollection("speaker");
+const featuredSpeakers = speakers.filter((s) => s.data.featured);
 ---
 
 <section class="featured-speakers">
   <div class="container">
     <h2 class="list-header">// Featured_Speakers</h2>
     <ul class="featured-speakers-list">
-      <li class="featured-speakers-list__item">
+      {
+        featuredSpeakers.map((speaker) => (
+          // <pre>{JSON.stringify(speaker.data.avatar, null, 2)}</pre>
+              <li class="featured-speakers-list__item">
+            <SpeakerCard
+              image={speaker.data.avatar}
+              altText=`${speaker.data.name} headshot`
+              name=`${speaker.data.name}`
+              description=`${speaker.data.role} @${speaker.data.company}`
+              talkTitle="TBD"
+              bgColor=`bg-${speaker.data.color}`
+            />
+          </li>
+        ))
+      }
+      <!-- <li class="featured-speakers-list__item">
         <SpeakerCard
           imagePath="/src/assets/images/avatar-elena-vasquez.webp"
           altText="Elena Vasquez headshot"
@@ -85,7 +104,7 @@ import SpeakerCard from "./SpeakerCard.astro";
           talkTitle="Deploy Preview Environments That Scale"
           bgColor="bg-purple"
         />
-      </li>
+      </li> -->
     </ul>
 
     <div class="button-row">

@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 import bgSvg from "../assets/images/pattern-avatar-bg.svg";
 
 interface Props {
-  imagePath: string;
+  image: ImageMetadata;
   altText: string;
   name: string;
   description: string;
@@ -12,21 +12,13 @@ interface Props {
   bgColor: string;
 }
 
-const { imagePath, altText, name, description, talkTitle, bgColor } =
-  Astro.props;
-const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/images/*.{jpeg,jpg,png,gif,webp}",
-);
-if (!images[imagePath])
-  throw new Error(
-    `"${imagePath}" does not exist in glob: "src/assets/images/*.{jpeg,jpg,png,gif,webp}"`,
-  );
+const { image, altText, name, description, talkTitle, bgColor } = Astro.props;
 ---
 
 <div class="speaker-card">
   <div class:list={["speaker-card__image", bgColor]}>
     <Image
-      src={images[imagePath]()}
+      src={image}
       alt={altText}
     />
   </div>
