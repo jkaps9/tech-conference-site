@@ -36,3 +36,14 @@ collections:
           default: false,
         }
       - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "tracks" # Used in routes, e.g., /admin/collections/blog
+    label: "Tracks" # Used in the UI
+    folder: "src/content/tracks" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields for each document, usually in frontmatter
+      - { label: "ID", name: "id", widget:"uuid", widget: "hidden" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "track" }
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Color", name: "color", widget: "color" }
