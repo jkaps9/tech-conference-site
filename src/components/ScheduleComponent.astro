@@ -1,55 +1,23 @@
 ---
-import { getEntries, getEntry } from "astro:content";
-import type { CollectionEntry } from "astro:content";
+import { getEntry } from "astro:content";
 
 import barcodeSvg from "../assets/images/pattern-barcode.svg?raw";
 import plusSvg from "../assets/images/icon-plus.svg?raw";
 import minusSvg from "../assets/images/icon-minus.svg?raw";
 import FavoriteButton from "./FavoriteButton.astro";
 
-// interface Props {
-//   category: string;
-//   title: string;
-//   description?: string;
-//   location?: string;
-//   speakerName: string;
-//   speakerCompany: string;
-//   startTime: string;
-//   endTime: string;
-//   dayNum: number;
-//   color: string;
-//   includeFavoriteButton?: boolean;
-//   favorite?: boolean;
-// }
-
-// const {
-//   category,
-//   title,
-//   description,
-//   location,
-//   speakerName,
-//   speakerCompany,
-//   startTime,
-//   endTime,
-//   dayNum,
-//   color,
-//   includeFavoriteButton = false,
-//   favorite = false,
-// } = Astro.props;
-
 const { talk, includeFavoriteButton = false, favorite = false } = Astro.props;
 
-// const speaker = await getEntry("speaker", talk.speaker);
-// const track = await getEntry("track", talk.track.id);
+const speaker = await getEntry("speakers", talk.data.speaker);
+const track = await getEntry("tracks", talk.data.track);
 ---
 
-<pre>{JSON.stringify(talk, null, 2)}</pre>
-<!-- <div class:list={["highlight-card", `bg-${track?.data.color}`]}>
+<div class:list={["highlight-card", `bg-${track?.data.color}`]}>
   <div class="highlight-card__headline">
     <p class=`text-${track?.data.color}`>{track?.data.name}</p>
   </div>
   <div class="highlight-card__info">
-    <h3>{talk.title}</h3>
+    <h3>{talk.data.title}</h3>
     <div class="speaker-details">
       <p class="speaker__name">{speaker?.data.name}</p>
       <p class="speaker__divider">//</p>
@@ -57,8 +25,8 @@ const { talk, includeFavoriteButton = false, favorite = false } = Astro.props;
     </div>
     <div class="event-details">
       <div class="divider"></div>
-      <p>{talk.description}</p>
-      <p class="location">{talk.location}</p>
+      <p>{talk.data.description}</p>
+      <p class="location">{talk.data.location}</p>
     </div>
     <button
       type="button"
@@ -75,17 +43,17 @@ const { talk, includeFavoriteButton = false, favorite = false } = Astro.props;
   </div>
   <div class="highlight-card__footer">
     <div class="times">
-      <p class="times__start">{talk.startTime}</p>
-      <p class="times__end">{talk.endTime}</p>
+      <p class="times__start">{talk.data.startTime}</p>
+      <p class="times__end">{talk.data.endTime}</p>
     </div>
     <div class="barcode">
       <Fragment set:html={barcodeSvg} />
     </div>
 
-    {!includeFavoriteButton && <p class="day">Day {talk.day}</p>}
+    {!includeFavoriteButton && <p class="day">Day {talk.data.day}</p>}
     {includeFavoriteButton && <FavoriteButton isFavorite={favorite} />}
   </div>
-</div> -->
+</div>
 <script>
   const infoSections = document.querySelectorAll(".highlight-card__info");
 

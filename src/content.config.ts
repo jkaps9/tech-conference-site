@@ -34,8 +34,8 @@ const talks = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      speaker: reference('speakers'),
-      track:reference('tracks'),
+      speaker: z.string(),
+      track: z.string(),
       description: z.string(),
       day: z.number(),
       startTime: z.string(),
