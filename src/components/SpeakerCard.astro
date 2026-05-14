@@ -18,7 +18,7 @@ const talks = (await getCollection("talks")).filter(
     talk.data.speaker ==
     name
       .toLowerCase()
-      .replace(/[^a-zA-Z0-9ö ]/g, "")
+      .replace(/[^a-zA-Z0-9ö\- ]/g, "")
       .replace(" ", "-"),
 );
 ---
