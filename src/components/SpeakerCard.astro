@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-
+import { getCollection, getEntry } from "astro:content";
 import bgSvg from "../assets/images/pattern-avatar-bg.svg";
 
 interface Props {
@@ -8,11 +8,19 @@ interface Props {
   altText: string;
   name: string;
   description: string;
-  talkTitle: string;
   bgColor: string;
 }
 
-const { image, altText, name, description, talkTitle, bgColor } = Astro.props;
+const { image, altText, name, description, bgColor } = Astro.props;
+
+const talks = (await getCollection("talks")).filter(
+  (talk) =>
+    talk.data.speaker ==
+    name
+      .toLowerCase()
+      .replace(/[^a-zA-Z0-9ö ]/g, "")
+      .replace(" ", "-"),
+);
 ---
 
 <div class="speaker-card">
@@ -28,7 +36,7 @@ const { image, altText, name, description, talkTitle, bgColor } = Astro.props;
       <p class="speaker__description">{description}</p>
     </div>
     <div class="divider"></div>
-    <p class="talk-title">{talkTitle}</p>
+    <p class="talk-title">{talks.map((t) => t.data.title)}</p>
   </div>
 </div>
 
