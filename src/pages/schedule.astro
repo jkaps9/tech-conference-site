@@ -40,24 +40,28 @@ const talks = (await getCollection("talks")).sort(compareTalks);
         <button
           class="btn btn--control-filter"
           type="button"
+          data-track="frontend"
         >
           Frontend
         </button>
         <button
           class="btn btn--control-filter"
           type="button"
+          data-track="performance"
         >
           Performance
         </button>
         <button
           class="btn btn--control-filter"
           type="button"
+          data-track="accessibility"
         >
           A11y
         </button>
         <button
           class="btn btn--control-filter"
           type="button"
+          data-track="tooling"
         >
           Tooling
         </button>
@@ -81,6 +85,7 @@ const talks = (await getCollection("talks")).sort(compareTalks);
             <li
               class="schedule__item"
               data-day={talk.data.day}
+              data-track={talk.data.track}
             >
               <ScheduleComponent
                 talk={talk}
@@ -95,16 +100,17 @@ const talks = (await getCollection("talks")).sort(compareTalks);
 </BaseLayout>
 
 <script>
-  // TODO: update to have filter parameters at top and function be generic (e.g. filterTalks)
-  // Function will look at all parameters
-
   let param_day = "1";
+  let param_track = "all";
 
   function filterTalks() {
     const talks = document.querySelectorAll(".schedule__item");
     talks.forEach((talk) => {
       if (talk instanceof HTMLElement) {
-        if (talk.dataset.day! === param_day) {
+        if (
+          talk.dataset.day === param_day &&
+          (param_track === "all" || talk.dataset.track === param_track)
+        ) {
           talk.classList.remove("hidden");
         } else {
           talk.classList.add("hidden");
@@ -118,9 +124,22 @@ const talks = (await getCollection("talks")).sort(compareTalks);
   dayTabButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
       if (btn instanceof HTMLElement) {
-        param_day = btn.dataset.day!;
+        param_day = btn.dataset.day || "1";
         filterTalks();
         dayTabButtons.forEach((btn) => btn.classList.remove("active"));
+        btn.classList.add("active");
+      }
+    });
+  });
+
+  const filterButtons = document.querySelectorAll(".btn--control-filter");
+
+  filterButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (btn instanceof HTMLElement) {
+        param_track = btn.dataset.track || "all";
+        filterTalks();
+        filterButtons.forEach((btn) => btn.classList.remove("active"));
         btn.classList.add("active");
       }
     });
