@@ -5,7 +5,7 @@ import { defineCollection, reference } from "astro:content";
 // Import Zod
 import { z } from "astro/zod";
 // Define a `loader` and `schema` for each collection
-const tracksCollection = defineCollection({
+const tracks = defineCollection({
   loader: glob({ pattern: "**/[^_]*.md", base: "./src/content/tracks" }),
   schema: ({ image }) =>
     z.object({
@@ -15,8 +15,8 @@ const tracksCollection = defineCollection({
     }),
 });
 
-const speakersCollection = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.md", base: "./src/content/speakers", id: ({ data }) => data.name}),
+const speakers = defineCollection({
+  loader: glob({ pattern: "**/[^_]*.md", base: "./src/content/speakers" }),
   schema: ({ image }) =>
     z.object({
       name: z.string(),
@@ -29,13 +29,13 @@ const speakersCollection = defineCollection({
     }),
 });
 
-const talksCollection = defineCollection({
+const talks = defineCollection({
   loader: glob({ pattern: "**/[^_]*.md", base: "./src/content/talks" }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      speaker: reference('speakersCollection'),
-      track:reference('tracksCollection'),
+      speaker: reference('speakers'),
+      track:reference('tracks'),
       description: z.string(),
       day: z.number(),
       startTime: z.string(),
@@ -46,4 +46,4 @@ const talksCollection = defineCollection({
 });
 
 // Export a single `collections` object to register your collection(s)
-export const collections = { track: tracksCollection, speaker: speakersCollection, talk: talksCollection };
+export const collections = { tracks, speakers, talks };

@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 
-const tracks = await getCollection("track");
+const tracks = await getCollection("tracks");
 
 const trackList = tracks.filter((t) => t.data.name !== "Keynote");
 ---

@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import SpeakerCard from "./SpeakerCard.astro";
 
-const speakers = await getCollection("speaker");
+const speakers = await getCollection("speakers");
 const featuredSpeakers = speakers.filter((s) => s.data.featured);
 ---
 
