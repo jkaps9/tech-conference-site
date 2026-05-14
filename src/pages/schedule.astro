@@ -1,12 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
-
+import { compareTalks } from "../scripts/compareTalks.js";
 import ScheduleComponent from "@components/ScheduleComponent.astro";
 
 const pageTitle = "Schedule";
 
-const talks = await getCollection("talks");
+const talks = (await getCollection("talks")).sort(compareTalks);
 ---
 
 <BaseLayout pageTitle={pageTitle}>

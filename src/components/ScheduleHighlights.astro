@@ -1,8 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 import ScheduleComponent from "./ScheduleComponent.astro";
+import { compareTalks } from "../scripts/compareTalks.js";
 
-const talks = await getCollection("talks");
+const talks = (await getCollection("talks")).sort(compareTalks);
 const highlightedTalks = talks.filter((t) => t.data.highlighted);
 ---
 
