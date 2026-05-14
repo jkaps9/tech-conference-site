@@ -1,5 +1,6 @@
 backend:
   name: git-gateway
+  repo: jkaps9/tech-conference-site
   branch: main
 local_backend: true
 media_folder: "/src/assets/images"
