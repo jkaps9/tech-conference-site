@@ -160,6 +160,8 @@ const talks = (await getCollection("talks")).sort(compareTalks);
     dayTabButtons[0].classList.add("active");
     filterTalks();
   });
+
+  // TODO: figure out why barcode SVG disappears when filtering
 </script>
 
 <style lang="scss">
