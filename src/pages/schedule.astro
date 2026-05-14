@@ -18,18 +18,21 @@ const talks = (await getCollection("talks")).sort(compareTalks);
         <button
           class="btn btn--control-tab active"
           type="button"
+          data-day="1"
         >
           Day 01
         </button>
         <button
           class="btn btn--control-tab"
           type="button"
+          data-day="2"
         >
           Day 02
         </button>
         <button
           class="btn btn--control-tab"
           type="button"
+          data-day="3"
         >
           Day 03
         </button>
@@ -75,7 +78,10 @@ const talks = (await getCollection("talks")).sort(compareTalks);
       <ul class="schedule__list">
         {
           talks.map((talk) => (
-            <li class="schedule__item">
+            <li
+              class="schedule__item"
+              data-day={talk.data.day}
+            >
               <ScheduleComponent
                 talk={talk}
                 includeFavoriteButton={true}
@@ -87,6 +93,36 @@ const talks = (await getCollection("talks")).sort(compareTalks);
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  // TODO: update to have filter parameters at top and function be generic (e.g. filterTalks)
+  // Function will look at all parameters
+
+  function filterTalksByDay(day: String) {
+    const talks = document.querySelectorAll(".schedule__item");
+    talks.forEach((talk) => {
+      if (talk instanceof HTMLElement) {
+        if (talk.dataset.day! === day) {
+          talk.classList.remove("hidden");
+        } else {
+          talk.classList.add("hidden");
+        }
+      }
+    });
+  }
+
+  const dayTabButtons = document.querySelectorAll(".btn--control-tab");
+
+  dayTabButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (btn instanceof HTMLElement) {
+        filterTalksByDay(btn.dataset.day!);
+        dayTabButtons.forEach((btn) => btn.classList.remove("active"));
+        btn.classList.add("active");
+      }
+    });
+  });
+</script>
 
 <style lang="scss">
   .schedule {
@@ -107,6 +143,10 @@ const talks = (await getCollection("talks")).sort(compareTalks);
       display: grid;
       gap: var(--space-sm);
       padding: 0;
+    }
+
+    &__item.hidden {
+      display: none;
     }
   }
 </style>
