@@ -98,11 +98,13 @@ const talks = (await getCollection("talks")).sort(compareTalks);
   // TODO: update to have filter parameters at top and function be generic (e.g. filterTalks)
   // Function will look at all parameters
 
-  function filterTalksByDay(day: String) {
+  let param_day = "1";
+
+  function filterTalks() {
     const talks = document.querySelectorAll(".schedule__item");
     talks.forEach((talk) => {
       if (talk instanceof HTMLElement) {
-        if (talk.dataset.day! === day) {
+        if (talk.dataset.day! === param_day) {
           talk.classList.remove("hidden");
         } else {
           talk.classList.add("hidden");
@@ -116,7 +118,8 @@ const talks = (await getCollection("talks")).sort(compareTalks);
   dayTabButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
       if (btn instanceof HTMLElement) {
-        filterTalksByDay(btn.dataset.day!);
+        param_day = btn.dataset.day!;
+        filterTalks();
         dayTabButtons.forEach((btn) => btn.classList.remove("active"));
         btn.classList.add("active");
       }
