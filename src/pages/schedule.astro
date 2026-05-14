@@ -101,7 +101,7 @@ const talks = (await getCollection("talks")).sort(compareTalks);
 
 <script>
   let param_day = "1";
-  let param_track = "all";
+  let param_tracks = new Set<String>();
 
   function filterTalks() {
     const talks = document.querySelectorAll(".schedule__item");
@@ -109,7 +109,8 @@ const talks = (await getCollection("talks")).sort(compareTalks);
       if (talk instanceof HTMLElement) {
         if (
           talk.dataset.day === param_day &&
-          (param_track === "all" || talk.dataset.track === param_track)
+          (param_tracks.size === 0 ||
+            param_tracks.has(talk.dataset.track || "n/a"))
         ) {
           talk.classList.remove("hidden");
         } else {
@@ -137,10 +138,15 @@ const talks = (await getCollection("talks")).sort(compareTalks);
   filterButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
       if (btn instanceof HTMLElement) {
-        param_track = btn.dataset.track || "all";
+        if (btn.classList.contains("active")) {
+          param_tracks.delete(btn.dataset.track || "n/a");
+          btn.classList.remove("active");
+        } else {
+          param_tracks.add(btn.dataset.track || "");
+          btn.classList.add("active");
+        }
+
         filterTalks();
-        filterButtons.forEach((btn) => btn.classList.remove("active"));
-        btn.classList.add("active");
       }
     });
   });
