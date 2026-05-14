@@ -150,6 +150,16 @@ const talks = (await getCollection("talks")).sort(compareTalks);
       }
     });
   });
+
+  const clearButton = document.querySelector(".btn--control-clear");
+  clearButton?.addEventListener("click", () => {
+    param_day = "1";
+    param_tracks.clear();
+    filterButtons.forEach((btn) => btn.classList.remove("active"));
+    dayTabButtons.forEach((btn) => btn.classList.remove("active"));
+    dayTabButtons[0].classList.add("active");
+    filterTalks();
+  });
 </script>
 
 <style lang="scss">
