@@ -35,8 +35,8 @@ collections:
     slug: "{{fields.title}}"
     fields:
       - { label: "Title", name: "title", widget: "string"}
-      - { label: "Speaker", name: "speaker", widget: "relation", collection: "speakers", search_fields: ["name"], value_field: "name", display_fields: ["name"] }
-      - { label: "Track", name: "track", widget: "relation", collection: "tracks", search_fields: ["name"], value_field: "name", display_fields: ["name"]}
+      - { label: "Speaker", name: "speaker", widget: "relation", collection: "speakers", search_fields: ["name"], value_field: "{{slug}}", display_fields: ["name"] }
+      - { label: "Track", name: "track", widget: "relation", collection: "tracks", search_fields: ["name"], value_field: "{{slug}}", display_fields: ["name"]}
       - { label: "Description", name: "description", widget: "text"}
       - { label: "Day", name: "day", widget: "number", min: 1, max: 3, step: 1, value_type: "int", default: 1}
       - { label: "Start Time", name: "startTime", widget: "datetime", time_format: "HH:mm"}

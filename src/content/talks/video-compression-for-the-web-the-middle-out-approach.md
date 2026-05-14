@@ -1,7 +1,7 @@
 ---
 title: "Video Compression for the Web: The Middle-Out Approach"
-speaker: Dinesh Chugtai
-track: Performance
+speaker: dinesh-chugtai
+track: performance
 description: Modern video compression on the web is stuck between bloated codecs
   and unacceptable quality tradeoffs. Dinesh presents Pied Piper's middle-out
   compression approach adapted for browser-based video delivery — achieving

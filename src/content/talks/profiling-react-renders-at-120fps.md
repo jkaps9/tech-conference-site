@@ -1,7 +1,7 @@
 ---
 title: Profiling React Renders at 120fps
-speaker: Ryan O'Sullivan
-track: Performance
+speaker: ryan-osullivan
+track: performance
 description: Modern devices support 120Hz displays, but most React apps struggle
   to maintain 60fps during complex interactions. Ryan demonstrates a systematic
   profiling workflow using browser DevTools, React profiling tools, and custom

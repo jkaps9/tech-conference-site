@@ -1,7 +1,7 @@
 ---
 title: The Next Frontier of Web Development
-speaker: Elena Vasquez
-track: Keynote
+speaker: elena-vasquez
+track: keynote
 description: The opening keynote. Elena takes the audience on a tour of the web
   platform's most transformative recent additions — from WebGPU to View
   Transitions to baseline support for container queries. She live-demos a
