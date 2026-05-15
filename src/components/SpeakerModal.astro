@@ -1,0 +1,33 @@
+---
+import { getCollection } from "astro:content";
+import ScheduleComponent from "./ScheduleComponent.astro";
+
+const { speakerName } = Astro.props;
+
+const talks = (await getCollection("talks")).filter(
+  (talk) =>
+    talk.data.speaker ==
+    speakerName
+      .toLowerCase()
+      .replace(/[^a-zA-Z0-9ö\- ]/g, "")
+      .replace(" ", "-"),
+);
+---
+
+<div class="speaker-modal">
+  <div class="speaker-modal__profile"></div>
+  <div class="divider"></div>
+  <div class="speaker-modal__bio"></div>
+  <div class="divider"></div>
+  <div class="speaker-modal__talks">
+    <h2 class="list-header">// Talk</h2>
+    {
+      talks.map((t) => (
+        <ScheduleComponent
+          talk={t}
+          includeFavoriteButton={true}
+        />
+      ))
+    }
+  </div>
+</div>

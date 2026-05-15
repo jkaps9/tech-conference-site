@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import { getCollection, getEntry } from "astro:content";
 import bgSvg from "../assets/images/pattern-avatar-bg.svg";
+import SpeakerModal from "./SpeakerModal.astro";
 
 interface Props {
   image: ImageMetadata;
@@ -38,6 +39,8 @@ const talks = (await getCollection("talks")).filter(
     <div class="divider"></div>
     <p class="talk-title">{talks.map((t) => t.data.title)}</p>
   </div>
+
+  {name === "Elena Vasquez" && <SpeakerModal speakerName={name} />}
 </div>
 
 <style lang="scss" define:vars={{ svgUrl: `url("${bgSvg.src}")` }}>
@@ -103,6 +106,12 @@ const talks = (await getCollection("talks")).filter(
       color: var(--color-green-200);
       font-weight: 500;
       text-transform: uppercase;
+    }
+
+    :global(.speaker-modal) {
+      position: absolute;
+      top: 0;
+      left: 0;
     }
   }
 </style>

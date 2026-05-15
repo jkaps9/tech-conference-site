@@ -41,6 +41,7 @@ const featuredSpeakers = speakers.filter((s) => s.data.featured);
     display: grid;
     gap: clamp(1.25rem, 1.0115rem + 1.0178vw, 1.5rem);
     padding: 0;
+    position: relative;
 
     @include bp(md) {
       grid-template-columns: repeat(2, 1fr);
