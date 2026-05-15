@@ -33,6 +33,7 @@ const talks = defineCollection({
   loader: glob({ pattern: "**/[^_]*.md", base: "./src/content/talks" }),
   schema: ({ image }) =>
     z.object({
+      id: z.string().optional(),
       title: z.string(),
       speaker: z.string(),
       track: z.string(),

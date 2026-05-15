@@ -1,4 +1,5 @@
 ---
+id: tlk_19
 title: "Inside a Modern Bundler: An Architectural Deep Dive"
 speaker: carlos-rivera
 track: performance

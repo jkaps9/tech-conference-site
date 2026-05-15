@@ -1,4 +1,5 @@
 ---
+id: tlk_12
 title: Server-Side Rendering Without the Framework
 speaker: julia-petrov
 track: frontend

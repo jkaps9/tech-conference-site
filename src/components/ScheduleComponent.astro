@@ -5,6 +5,7 @@ import barcodeSvg from "../assets/images/pattern-barcode.svg?raw";
 import plusSvg from "../assets/images/icon-plus.svg?raw";
 import minusSvg from "../assets/images/icon-minus.svg?raw";
 import FavoriteButton from "./FavoriteButton.astro";
+import Barcode from "./Barcode.astro";
 
 const { talk, includeFavoriteButton = false, favorite = false } = Astro.props;
 
@@ -47,7 +48,7 @@ const track = await getEntry("tracks", talk.data.track);
       <p class="times__end">{talk.data.endTime}</p>
     </div>
     <div class="barcode">
-      <Fragment set:html={barcodeSvg} />
+      <Barcode id={talk.data.id} />
     </div>
 
     {!includeFavoriteButton && <p class="day">Day {talk.data.day}</p>}
