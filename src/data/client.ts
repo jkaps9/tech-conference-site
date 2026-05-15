@@ -11,7 +11,7 @@ export const SITE = {
 // ===== BUSINESS INFO =====
 export const BUSINESS = {
 	name: SITE.title,
-	email: "info@pearlriverweb.com",
+	email: "email@example.com",
 	phoneForTel: "555-867-5309",
 	phoneFormatted: "(555) 867-5309",
 	logo: "/assets/favicons/favicon.svg",
