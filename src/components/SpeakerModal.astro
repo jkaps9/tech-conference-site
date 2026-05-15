@@ -18,7 +18,7 @@ const talks = (await getCollection("talks")).filter(
 const speaker = await getEntry("speakers", speakerSlug);
 ---
 
-<div class="speaker-modal hidden">
+<dialog class="speaker-modal">
   <button
     type="button"
     class="btn btn--nav"
@@ -54,7 +54,7 @@ const speaker = await getEntry("speakers", speakerSlug);
       ))
     }
   </div>
-</div>
+</dialog>
 
 <script>
   const speakerModals = document.querySelectorAll(".speaker-modal");
@@ -63,8 +63,7 @@ const speaker = await getEntry("speakers", speakerSlug);
     const closeButton = modal.querySelector(".btn--nav");
     closeButton?.addEventListener("click", (e) => {
       e.stopPropagation();
-      modal.classList.add("hidden");
-      console.log(`add hidden to ${modal}`);
+      modal.close();
     });
   });
 </script>
@@ -73,13 +72,17 @@ const speaker = await getEntry("speakers", speakerSlug);
   .speaker-modal {
     background: var(--color-neutral-900);
     border: 1px solid var(--color-neutral-500);
-    display: flex;
+    // display: flex;
     flex-direction: column;
     gap: 1.25rem;
     padding: clamp(1.25rem, 0.8099rem + 1.8779vw, var(--space-lg))
       clamp(var(--space-sm), 0.4718rem + 2.2535vw, var(--space-lg));
     position: relative;
     z-index: 1000;
+
+    &:open {
+      display: flex;
+    }
 
     .btn--nav {
       position: absolute;
@@ -127,10 +130,6 @@ const speaker = await getEntry("speakers", speakerSlug);
 
     .list-header {
       font-weight: 800;
-    }
-
-    &.hidden {
-      display: none;
     }
   }
 </style>

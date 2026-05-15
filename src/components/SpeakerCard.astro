@@ -24,38 +24,38 @@ const talks = (await getCollection("talks")).filter(
 );
 ---
 
-<div class="speaker-card">
-  <div class:list={["speaker-card__image", bgColor]}>
-    <Image
-      src={image}
-      alt={altText}
+<>
+  <div class="speaker-card">
+    <div class:list={["speaker-card__image", bgColor]}>
+      <Image
+        src={image}
+        alt={altText}
+      />
+    </div>
+    <div class="speaker-card__bottom">
+      <div class="speaker">
+        <h3 class="speaker__name">{name}</h3>
+        <p class="speaker__description">{description}</p>
+      </div>
+      <div class="divider"></div>
+      <p class="talk-title">{talks.map((t) => t.data.title)}</p>
+    </div>
+    <SpeakerModal
+      speakerName={name}
+      image={image}
+      altText={altText}
+      description={description}
+      bgColor={bgColor}
     />
   </div>
-  <div class="speaker-card__bottom">
-    <div class="speaker">
-      <h3 class="speaker__name">{name}</h3>
-      <p class="speaker__description">{description}</p>
-    </div>
-    <div class="divider"></div>
-    <p class="talk-title">{talks.map((t) => t.data.title)}</p>
-  </div>
-
-  <SpeakerModal
-    speakerName={name}
-    image={image}
-    altText={altText}
-    description={description}
-    bgColor={bgColor}
-  />
-</div>
+</>
 
 <script>
   const speakerCards = document.querySelectorAll(".speaker-card");
   speakerCards?.forEach((card) => {
     card.addEventListener("click", () => {
       const modal = card.querySelector(".speaker-modal");
-      modal?.classList.remove("hidden");
-      console.log(`remove hidden from ${modal}`);
+      modal?.showModal();
     });
   });
 </script>
@@ -68,22 +68,22 @@ const talks = (await getCollection("talks")).filter(
     flex-direction: column;
     height: stretch;
 
-    &::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba($color-neutral-900, 0.8);
-      width: 100vw;
-      height: 100vh;
-      z-index: 999;
-    }
-
-    &:has(.speaker-modal.hidden)::before {
-      display: none;
-    }
+    // &::before {
+    //   content: "";
+    //   position: fixed;
+    //   top: 0;
+    //   left: 0;
+    //   right: 0;
+    //   bottom: 0;
+    //   background: rgba($color-neutral-900, 0.8);
+    //   width: 100vw;
+    //   height: 100vh;
+    //   z-index: 999;
+    // }
+    //
+    // &:has(.speaker-modal.hidden)::before {
+    //   display: none;
+    // }
 
     &:hover {
       border-color: var(--color-neutral-100);
@@ -100,8 +100,10 @@ const talks = (await getCollection("talks")).filter(
       background-image: var(--svgUrl);
       background-size: contain;
       background-position: center;
+      width: 100%;
       img {
         height: auto;
+        width: 100%;
       }
     }
 
@@ -141,14 +143,13 @@ const talks = (await getCollection("talks")).filter(
       font-weight: 500;
       text-transform: uppercase;
     }
-
-    :global(.speaker-modal) {
-      position: absolute;
-      left: 0;
-      margin: 0 auto;
-      max-width: 800px;
-      right: 0;
-      width: fit-content;
-    }
+  }
+  :global(.speaker-modal) {
+    position: absolute;
+    left: 0;
+    margin: 0 auto;
+    max-width: 800px;
+    right: 0;
+    width: fit-content;
   }
 </style>
