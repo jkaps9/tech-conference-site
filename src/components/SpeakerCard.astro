@@ -55,7 +55,7 @@ const talks = (await getCollection("talks")).filter(
   speakerCards?.forEach((card) => {
     card.addEventListener("click", () => {
       const modal = card.querySelector(".speaker-modal");
-      modal?.show();
+      modal?.showModal();
     });
   });
 </script>
@@ -67,6 +67,7 @@ const talks = (await getCollection("talks")).filter(
     display: flex;
     flex-direction: column;
     height: stretch;
+    anchor-name: --trigger-card;
 
     &:hover {
       border-color: var(--color-neutral-100);
@@ -128,11 +129,8 @@ const talks = (await getCollection("talks")).filter(
     }
   }
   :global(.speaker-modal) {
-    position: absolute;
-    left: 0;
     margin: auto;
     max-width: 800px;
-    right: 0;
     width: fit-content;
   }
 </style>
