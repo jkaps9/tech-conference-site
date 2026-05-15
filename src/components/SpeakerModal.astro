@@ -1,23 +1,39 @@
 ---
-import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import { getCollection, getEntry } from "astro:content";
+import bgSvg from "../assets/images/pattern-avatar-bg.svg";
 import ScheduleComponent from "./ScheduleComponent.astro";
 
-const { speakerName } = Astro.props;
+const { speakerName, image, altText, description, bgColor } = Astro.props;
+
+const speakerSlug = speakerName
+  .toLowerCase()
+  .replace(/[^a-zA-Z0-9ö\- ]/g, "")
+  .replace(" ", "-");
 
 const talks = (await getCollection("talks")).filter(
-  (talk) =>
-    talk.data.speaker ==
-    speakerName
-      .toLowerCase()
-      .replace(/[^a-zA-Z0-9ö\- ]/g, "")
-      .replace(" ", "-"),
+  (talk) => talk.data.speaker == speakerSlug,
 );
+const speaker = await getEntry("speakers", speakerSlug);
 ---
 
 <div class="speaker-modal">
-  <div class="speaker-modal__profile"></div>
+  <div class="speaker-modal__profile">
+    <div class:list={["speaker-modal__image", bgColor]}>
+      <Image
+        src={image}
+        alt={altText}
+      />
+    </div>
+    <div class="speaker">
+      <h3 class="speaker__name">{speakerName}</h3>
+      <p class="speaker__description">{description}</p>
+    </div>
+  </div>
   <div class="divider"></div>
-  <div class="speaker-modal__bio"></div>
+  <div class="speaker-modal__bio">
+    {speaker && <p>{speaker.data.bio}</p>}
+  </div>
   <div class="divider"></div>
   <div class="speaker-modal__talks">
     <h2 class="list-header">// Talk</h2>
@@ -31,3 +47,57 @@ const talks = (await getCollection("talks")).filter(
     }
   </div>
 </div>
+
+<style lang="scss" define:vars={{ svgUrl: `url("${bgSvg.src}")` }}>
+  .speaker-modal {
+    background: var(--color-neutral-900);
+    border: 1px solid var(--color-neutral-500);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: clamp(1.25rem, 0.8099rem + 1.8779vw, var(--space-lg))
+      clamp(var(--space-sm), 0.4718rem + 2.2535vw, var(--space-lg));
+
+    &__profile {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      @include bp(md) {
+        align-items: center;
+        flex-direction: row;
+      }
+      .speaker {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        &__name {
+          color: var(--color-neutral-100);
+          text-transform: lowercase;
+        }
+        &__description {
+          @include type-body-sm;
+          font-weight: 500;
+        }
+      }
+    }
+    &__image {
+      background-image: var(--svgUrl);
+      background-size: contain;
+      background-position: center;
+      max-width: rem(120);
+      img {
+        height: auto;
+      }
+    }
+
+    &__bio {
+      p {
+        @include type-body-sm;
+      }
+    }
+
+    .list-header {
+      font-weight: 800;
+    }
+  }
+</style>

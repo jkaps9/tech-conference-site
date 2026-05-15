@@ -40,7 +40,17 @@ const talks = (await getCollection("talks")).filter(
     <p class="talk-title">{talks.map((t) => t.data.title)}</p>
   </div>
 
-  {name === "Elena Vasquez" && <SpeakerModal speakerName={name} />}
+  {
+    name === "Elena Vasquez" && (
+      <SpeakerModal
+        speakerName={name}
+        image={image}
+        altText={altText}
+        description={description}
+        bgColor={bgColor}
+      />
+    )
+  }
 </div>
 
 <style lang="scss" define:vars={{ svgUrl: `url("${bgSvg.src}")` }}>
@@ -110,8 +120,11 @@ const talks = (await getCollection("talks")).filter(
 
     :global(.speaker-modal) {
       position: absolute;
-      top: 0;
       left: 0;
+      margin: 0 auto;
+      right: 0;
+      top: 0;
+      width: fit-content;
     }
   }
 </style>
