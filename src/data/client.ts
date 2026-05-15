@@ -3,7 +3,7 @@ export const SITE = {
 	title: "DevHorizon",
 	tagline: "Three-day engineer conference",
 	description: "A three-day conference for engineers who build the interfaces humans use every day.",
-	url: "https://www.yourwebsite.com",
+	url: "https://devhorizon26.netlify.app/",
 	author: "DevHorizon",
 	locale: "en",
 };
@@ -21,7 +21,7 @@ export const BUSINESS = {
 		city: "San Francisco",
 		state: "CA",
 		zip: "",
-		mapLink: "https://maps.app.goo.gl/CcfhaWkR18YoUt4h9",
+		mapLink: "https://maps.app.goo.gl/a25o47tp5RzJ2URJ7",
 	},
 	socials: {
 		facebook: "https://www.facebook.com/",
