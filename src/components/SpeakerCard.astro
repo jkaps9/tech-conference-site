@@ -40,18 +40,25 @@ const talks = (await getCollection("talks")).filter(
     <p class="talk-title">{talks.map((t) => t.data.title)}</p>
   </div>
 
-  {
-    name === "Elena Vasquez" && (
-      <SpeakerModal
-        speakerName={name}
-        image={image}
-        altText={altText}
-        description={description}
-        bgColor={bgColor}
-      />
-    )
-  }
+  <SpeakerModal
+    speakerName={name}
+    image={image}
+    altText={altText}
+    description={description}
+    bgColor={bgColor}
+  />
 </div>
+
+<script>
+  const speakerCards = document.querySelectorAll(".speaker-card");
+  speakerCards?.forEach((card) => {
+    card.addEventListener("click", () => {
+      const modal = card.querySelector(".speaker-modal");
+      modal?.classList.remove("hidden");
+      console.log(`remove hidden from ${modal}`);
+    });
+  });
+</script>
 
 <style lang="scss" define:vars={{ svgUrl: `url("${bgSvg.src}")` }}>
   .speaker-card {

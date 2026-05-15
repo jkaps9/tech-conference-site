@@ -18,7 +18,7 @@ const talks = (await getCollection("talks")).filter(
 const speaker = await getEntry("speakers", speakerSlug);
 ---
 
-<div class="speaker-modal">
+<div class="speaker-modal hidden">
   <button
     type="button"
     class="btn btn--nav"
@@ -61,8 +61,10 @@ const speaker = await getEntry("speakers", speakerSlug);
 
   speakerModals?.forEach((modal) => {
     const closeButton = modal.querySelector(".btn--nav");
-    closeButton?.addEventListener("click", () => {
+    closeButton?.addEventListener("click", (e) => {
+      e.stopPropagation();
       modal.classList.add("hidden");
+      console.log(`add hidden to ${modal}`);
     });
   });
 </script>
@@ -77,6 +79,7 @@ const speaker = await getEntry("speakers", speakerSlug);
     padding: clamp(1.25rem, 0.8099rem + 1.8779vw, var(--space-lg))
       clamp(var(--space-sm), 0.4718rem + 2.2535vw, var(--space-lg));
     position: relative;
+    z-index: 1000;
     .btn--nav {
       position: absolute;
       top: 1.25rem;
