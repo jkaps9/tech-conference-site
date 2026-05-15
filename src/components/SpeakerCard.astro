@@ -68,23 +68,6 @@ const talks = (await getCollection("talks")).filter(
     flex-direction: column;
     height: stretch;
 
-    // &::before {
-    //   content: "";
-    //   position: fixed;
-    //   top: 0;
-    //   left: 0;
-    //   right: 0;
-    //   bottom: 0;
-    //   background: rgba($color-neutral-900, 0.8);
-    //   width: 100vw;
-    //   height: 100vh;
-    //   z-index: 999;
-    // }
-    //
-    // &:has(.speaker-modal.hidden)::before {
-    //   display: none;
-    // }
-
     &:hover {
       border-color: var(--color-neutral-100);
       box-shadow: 4px 4px 0 0 var(--color-neutral-100);
@@ -147,7 +130,7 @@ const talks = (await getCollection("talks")).filter(
   :global(.speaker-modal) {
     position: absolute;
     left: 0;
-    margin: 0 auto;
+    margin: auto;
     max-width: 800px;
     right: 0;
     width: fit-content;
