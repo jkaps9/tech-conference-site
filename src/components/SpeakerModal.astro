@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import { getCollection, getEntry } from "astro:content";
 import bgSvg from "../assets/images/pattern-avatar-bg.svg";
+import CloseSvg from "../assets/images/icon-cross.svg";
 import ScheduleComponent from "./ScheduleComponent.astro";
 
 const { speakerName, image, altText, description, bgColor } = Astro.props;
@@ -18,6 +19,13 @@ const speaker = await getEntry("speakers", speakerSlug);
 ---
 
 <div class="speaker-modal">
+  <button
+    type="button"
+    class="btn btn--nav"
+    aria-label="Close speaker modal"
+  >
+    <CloseSvg />
+  </button>
   <div class="speaker-modal__profile">
     <div class:list={["speaker-modal__image", bgColor]}>
       <Image
@@ -48,6 +56,17 @@ const speaker = await getEntry("speakers", speakerSlug);
   </div>
 </div>
 
+<script>
+  const speakerModals = document.querySelectorAll(".speaker-modal");
+
+  speakerModals?.forEach((modal) => {
+    const closeButton = modal.querySelector(".btn--nav");
+    closeButton?.addEventListener("click", () => {
+      modal.classList.add("hidden");
+    });
+  });
+</script>
+
 <style lang="scss" define:vars={{ svgUrl: `url("${bgSvg.src}")` }}>
   .speaker-modal {
     background: var(--color-neutral-900);
@@ -57,7 +76,13 @@ const speaker = await getEntry("speakers", speakerSlug);
     gap: 1.25rem;
     padding: clamp(1.25rem, 0.8099rem + 1.8779vw, var(--space-lg))
       clamp(var(--space-sm), 0.4718rem + 2.2535vw, var(--space-lg));
-
+    position: relative;
+    .btn--nav {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      padding: rem(9);
+    }
     &__profile {
       display: flex;
       flex-direction: column;
@@ -98,6 +123,10 @@ const speaker = await getEntry("speakers", speakerSlug);
 
     .list-header {
       font-weight: 800;
+    }
+
+    &.hidden {
+      display: none;
     }
   }
 </style>
