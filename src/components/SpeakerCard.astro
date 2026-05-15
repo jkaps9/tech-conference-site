@@ -55,7 +55,7 @@ const talks = (await getCollection("talks")).filter(
   speakerCards?.forEach((card) => {
     card.addEventListener("click", () => {
       const modal = card.querySelector(".speaker-modal");
-      modal?.showModal();
+      modal?.show();
     });
   });
 </script>
