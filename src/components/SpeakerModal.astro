@@ -18,7 +18,10 @@ const talks = (await getCollection("talks")).filter(
 const speaker = await getEntry("speakers", speakerSlug);
 ---
 
-<dialog class="speaker-modal">
+<dialog
+  class="speaker-modal"
+  closedby="any"
+>
   <button
     type="button"
     class="btn btn--nav"
@@ -64,6 +67,14 @@ const speaker = await getEntry("speakers", speakerSlug);
     closeButton?.addEventListener("click", (e) => {
       e.stopPropagation();
       modal.close();
+    });
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        // Only close if the backdrop (not the content) was clicked
+        e.stopPropagation();
+        modal.close();
+      }
     });
   });
 </script>
