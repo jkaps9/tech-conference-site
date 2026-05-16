@@ -67,7 +67,6 @@ const talks = (await getCollection("talks")).filter(
     display: flex;
     flex-direction: column;
     height: stretch;
-    anchor-name: --trigger-card;
 
     &:hover {
       border-color: var(--color-neutral-100);
@@ -105,7 +104,7 @@ const talks = (await getCollection("talks")).filter(
     }
 
     .speaker {
-      isplay: flex;
+      display: flex;
       flex-direction: column;
       gap: 0.25rem;
       height: stretch;

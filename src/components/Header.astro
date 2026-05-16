@@ -19,7 +19,7 @@ const { PageTitle } = Astro.props;
         >
           {
             navData.map((item) => (
-              <li class:list="nav-list__item">
+              <li class:list={["nav-list__item"]}>
                 <a
                   href={item.url}
                   class:list={[

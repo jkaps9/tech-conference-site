@@ -14,12 +14,12 @@ const { isFavorite = false } = Astro.props;
   type="button"
   class:list={['btn--fav', { 'favorite': isFavorite }]}
 >
-  <div class="empty">
+  <span class="empty">
     <StarEmptySvg />
-  </div>
-  <div class="filled">
+  </span>
+  <span class="filled">
     <StarFilledSvg />
-  </div>
+  </span>
 </button>
 
 <script>

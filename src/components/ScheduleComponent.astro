@@ -33,12 +33,12 @@ const track = await getEntry("tracks", talk.data.track);
       type="button"
       data-expand-details-button
     >
-      <div class="open-icon">
+      <span class="open-icon">
         <Fragment set:html={plusSvg} />
-      </div>
-      <div class="close-icon">
+      </span>
+      <span class="close-icon">
         <Fragment set:html={minusSvg} />
-      </div>
+      </span>
       <span>Show Details</span>
     </button>
   </div>
