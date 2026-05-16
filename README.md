@@ -53,8 +53,7 @@ Users should be able to:
 
 ### Screenshot
 
-<!-- <img src="./screenshot.png" alt="screenshot" width="500"/> -->
-<img src="./preview.jpg" alt="screenshot" width="90vw"/>
+<img src="./screenshot.png" alt="screenshot" width="500"/>
 
 ### Links
 
@@ -69,8 +68,9 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - Mobile-first workflow
-- [Astro](https://astro.build/)
-- [SASS](https://sass-lang.com)
+- [Astro](https://astro.build/) - static site generator
+- [SASS](https://sass-lang.com) - css preprocesser
+- [Decap](https://decapcms.org/) - headless CMS
 
 ## Author
 
